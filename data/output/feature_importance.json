@@ -1,0 +1,1374 @@
+{
+ "Spontaneous pneumothorax": {
+  "train_positive_diagnosis": 10162,
+  "train_negative_diagnosis": 1015440,
+  "test_positive_diagnosis": 1343,
+  "test_negative_diagnosis": 133186,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9973430427081283,
+   "recall": 0.9990159417437512,
+   "f1": 0.9973474801061006
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9910874235294992,
+   "recall": 0.9992553983618764,
+   "f1": 0.6912181303116146
+  },
+  "top10_relevant_symptoms": {
+   "Do you have pain that is increased when you breathe in deeply?": 0.34644224906687743,
+   "Do you have chest pain even at rest?": 0.12579940819367294,
+   "Do you have symptoms that are increased with physical exertion but alleviated with rest?": 0.10566594079723726,
+   "Do you have a cough?": 0.05979500032348532,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.04802383849329637,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.02576371474663007,
+   "Do you have swelling in one or more areas of your body?": 0.025000218440659302,
+   "Do you constantly feel fatigued or do you have non-restful sleep?": 0.02261907973320308,
+   "Do you have nasal congestion or a clear runny nose?": 0.01995873648485609,
+   "Are your symptoms worse when lying down and alleviated while sitting up?": 0.018856995273895272
+  }
+ },
+ "Cluster headache": {
+  "train_positive_diagnosis": 20804,
+  "train_negative_diagnosis": 1004798,
+  "test_positive_diagnosis": 2825,
+  "test_negative_diagnosis": 131704,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9961305518169583,
+   "recall": 1.0,
+   "f1": 0.9961454667337021
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9921429580239205,
+   "recall": 1.0,
+   "f1": 0.8424034590726107
+  },
+  "top10_relevant_symptoms": {
+   "Do you feel that your eyes produce excessive tears?": 0.17545093856608707,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.12025644996949007,
+   "Do you have a cough?": 0.10670448725894395,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.07509239155099853,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.06641760774774488,
+   "Do you have nasal congestion or a clear runny nose?": 0.05612455939231659,
+   "Do you have swelling in one or more areas of your body?": 0.03421178963799931,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.029474573260944503,
+   "Have you had significantly increased sweating?": 0.02566106619733153,
+   "Have you been coughing up blood?": 0.024288568889958756
+  }
+ },
+ "Boerhaave": {
+  "train_positive_diagnosis": 15080,
+  "train_negative_diagnosis": 1010522,
+  "test_positive_diagnosis": 2083,
+  "test_negative_diagnosis": 132446,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9998010610079575,
+   "recall": 1.0,
+   "f1": 0.9998011005768083
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9992789658735292,
+   "recall": 1.0,
+   "f1": 0.97724607084213
+  },
+  "top10_relevant_symptoms": {
+   "Have you vomited several times or have you made several efforts to vomit?": 0.2601322222678328,
+   "Have you recently thrown up blood or something resembling coffee beans?": 0.21210809755504156,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.1610407245019309,
+   "Do you have a cough?": 0.05119634513591022,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.049366518794558736,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.027025228246149238,
+   "Have you had significantly increased sweating?": 0.02232589056741859,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.01735942539163658,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.017293965313955946,
+   "Do you have nasal congestion or a clear runny nose?": 0.016219046815808245
+  }
+ },
+ "Spontaneous rib fracture": {
+  "train_positive_diagnosis": 5712,
+  "train_negative_diagnosis": 1019890,
+  "test_positive_diagnosis": 778,
+  "test_negative_diagnosis": 133751,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9999702666339599,
+   "recall": 1.0,
+   "f1": 0.9974358974358974
+  },
+  "top10_relevant_symptoms": {
+   "Do you have pain that is increased with movement?": 0.354008034477245,
+   "Do you have pain that is increased when you breathe in deeply?": 0.24290511620719238,
+   "Do you have intense coughing fits?": 0.17681936208086135,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.031274803795818235,
+   "Do you have a cough?": 0.029649463126691686,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.023705394793817548,
+   "Do you have swelling in one or more areas of your body?": 0.015055582997980838,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.01412903706171723,
+   "Do you have nasal congestion or a clear runny nose?": 0.012694043771110556,
+   "Have you had significantly increased sweating?": 0.00985281066735702
+  }
+ },
+ "GERD": {
+  "train_positive_diagnosis": 25979,
+  "train_negative_diagnosis": 999623,
+  "test_positive_diagnosis": 3543,
+  "test_negative_diagnosis": 130986,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9982870780245583,
+   "recall": 0.9987297432541669,
+   "f1": 0.998287835940055
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9956440618751348,
+   "recall": 0.9960485464295794,
+   "f1": 0.9233385661957091
+  },
+  "top10_relevant_symptoms": {
+   "Do you have symptoms that get worse after eating?": 0.2275287358565442,
+   "Do you have a burning sensation that starts in your stomach then goes up into your throat, and can be associated with a bitter taste in your mouth?": 0.22212076218848417,
+   "Are your symptoms worse when lying down and alleviated while sitting up?": 0.14007382533249532,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.05566953629129832,
+   "Do you have a cough?": 0.04146853708849879,
+   "Have you recently thrown up blood or something resembling coffee beans?": 0.03989845362226623,
+   "Have you recently had stools that were black (like coal)?": 0.03397894885694219,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.02881472306801631,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.027435755677136582,
+   "Do you have nasal congestion or a clear runny nose?": 0.0253368441639954
+  }
+ },
+ "HIV (initial infection)": {
+  "train_positive_diagnosis": 29013,
+  "train_negative_diagnosis": 996589,
+  "test_positive_diagnosis": 3919,
+  "test_negative_diagnosis": 130610,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9999827663461207,
+   "recall": 1.0,
+   "f1": 0.9999827666431145
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9997621330716797,
+   "recall": 1.0,
+   "f1": 0.9959339263024143
+  },
+  "top10_relevant_symptoms": {
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.15662622793430347,
+   "Have you had an involuntary weight loss over the last 3 months?": 0.11833869431539562,
+   "Do you have swollen or painful lymph nodes?": 0.09902832830611491,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.09419843015520744,
+   "Do you feel so tired that you are unable to do your usual activities or are you stuck in your bed all day long?": 0.07193671698081797,
+   "Have you had diarrhea or an increase in stool frequency?": 0.06260712315808148,
+   "Do you have diffuse (widespread) muscle pain?": 0.057392906480452296,
+   "Do you have a cough?": 0.04759292354757817,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.04694716240565935,
+   "Have you had significantly increased sweating?": 0.046099714753048006
+  }
+ },
+ "Anemia": {
+  "train_positive_diagnosis": 50665,
+  "train_negative_diagnosis": 974937,
+  "test_positive_diagnosis": 6842,
+  "test_negative_diagnosis": 127687,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9997039376295273,
+   "recall": 0.9995460376986085,
+   "f1": 0.9997038908739169
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9990113655791688,
+   "recall": 0.9988307512423268,
+   "f1": 0.9903630171726686
+  },
+  "top10_relevant_symptoms": {
+   "Have you noticed light red blood or blood clots in your stool?": 0.14521962431852403,
+   "Is your skin much paler than usual?": 0.1350155833076279,
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": 0.12296412472711594,
+   "Have you recently had stools that were black (like coal)?": 0.11300824301291638,
+   "Do you feel so tired that you are unable to do your usual activities or are you stuck in your bed all day long?": 0.09953546423932874,
+   "Do you feel slightly dizzy or lightheaded?": 0.0712963886439538,
+   "Do you constantly feel fatigued or do you have non-restful sleep?": 0.06468777523099233,
+   "Do you have a cough?": 0.03484321693388475,
+   "Do you have very abundant or very long menstruation periods?": 0.028539042788879403,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.023571680151234026
+  }
+ },
+ "Viral pharyngitis": {
+  "train_positive_diagnosis": 61642,
+  "train_negative_diagnosis": 963960,
+  "test_positive_diagnosis": 8334,
+  "test_negative_diagnosis": 126195,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9869082768242432,
+   "recall": 0.9989130787450116,
+   "f1": 0.9870635760315476
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9751131726244899,
+   "recall": 0.9965202783777298,
+   "f1": 0.8322477202124461
+  },
+  "top10_relevant_symptoms": {
+   "Have you been coughing up blood?": 0.12887292043517956,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.10796061083281051,
+   "Do you have nasal congestion or a clear runny nose?": 0.1036666620454958,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.08653055902262845,
+   "Do you have a cough?": 0.04099308130677222,
+   "Do you have a sore throat?": 0.03853210693678555,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.036878733343938395,
+   "Have you had significantly increased sweating?": 0.03487884714796247,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.034247998537386554,
+   "Do you have a cough that produces colored or more abundant sputum than usual?": 0.027132658332578562
+  }
+ },
+ "Inguinal hernia": {
+  "train_positive_diagnosis": 20235,
+  "train_negative_diagnosis": 1005367,
+  "test_positive_diagnosis": 2751,
+  "test_negative_diagnosis": 131778,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9999258710155671,
+   "recall": 1.0,
+   "f1": 0.9999258765102662
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9994722327527894,
+   "recall": 0.9992729916394039,
+   "f1": 0.9872508529358951
+  },
+  "top10_relevant_symptoms": {
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.18435904929095157,
+   "Do you have intense coughing fits?": 0.13877632268674833,
+   "Are the symptoms or pain increased with coughing, with an effort like lifting a weight or from forcing a bowel movement?": 0.12500307484341883,
+   "Do you feel your abdomen is bloated or distended (swollen due to pressure from inside)?": 0.12347878796388154,
+   "Have you been able to pass stools or gas since your symptoms increased?": 0.09223495006286779,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.06627443151054298,
+   "Do you have a cough?": 0.04744346322054557,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.042174310229200346,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.027490281419330586,
+   "Do you have nasal congestion or a clear runny nose?": 0.015232787985173439
+  }
+ },
+ "Myasthenia gravis": {
+  "train_positive_diagnosis": 18566,
+  "train_negative_diagnosis": 1007036,
+  "test_positive_diagnosis": 2215,
+  "test_negative_diagnosis": 132314,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9999330999264099,
+   "recall": 1.0,
+   "f1": 0.9979725163325073
+  },
+  "top10_relevant_symptoms": {
+   "Do you have difficulty swallowing, or have a feeling of discomfort/blockage when swallowing?": 0.15466870182768513,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.12955741781418656,
+   "Do you have the perception of seeing two images of a single object seen overlapping or adjacent to each other (double vision)?": 0.12698060388878535,
+   "Do you have difficulty articulating words/speaking?": 0.1125726805393166,
+   "Do you have a hard time opening/raising one or both eyelids?": 0.10502773697434195,
+   "Do you have pain or weakness in your jaw?": 0.10015905640168807,
+   "Do your symptoms of muscle weakness increase with fatigue and/or stress?": 0.057449826890406994,
+   "Do you feel weakness in both arms and/or both legs?": 0.04932493087606438,
+   "Did you previously, or do you currently, have any weakness/paralysis in one or more of your limbs or in your face?": 0.042249144952689575,
+   "Do you have a cough?": 0.02596756006381412
+  }
+ },
+ "Whooping cough": {
+  "train_positive_diagnosis": 6070,
+  "train_negative_diagnosis": 1019532,
+  "test_positive_diagnosis": 549,
+  "test_negative_diagnosis": 133980,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "top10_relevant_symptoms": {
+   "Did you vomit after coughing?": 0.39999434637189246,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.17706436724810132,
+   "Do you have intense coughing fits?": 0.08766456391884152,
+   "Do you wheeze while inhaling or is your breathing noisy after coughing spells?": 0.07463978225499826,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.05495488871341434,
+   "Do you have a cough?": 0.05046770621358209,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.01827606892539893,
+   "Do you have nasal congestion or a clear runny nose?": 0.010909616095982184,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.010303227376006469,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.010298241043476639
+  }
+ },
+ "Anaphylaxis": {
+  "train_positive_diagnosis": 27718,
+  "train_negative_diagnosis": 997884,
+  "test_positive_diagnosis": 3799,
+  "test_negative_diagnosis": 130730,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 0.99999256665849,
+   "recall": 1.0,
+   "f1": 0.9998684037373338
+  },
+  "top10_relevant_symptoms": {
+   "Do you have swelling in one or more areas of your body?": 0.2293227373797794,
+   "Have you been in contact with or ate something that you have an allergy to?": 0.1489464721136634,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.13121712017107204,
+   "Have you noticed a high pitched sound when breathing in?": 0.07997822257070097,
+   "Have you had diarrhea or an increase in stool frequency?": 0.06965486808877652,
+   "Did you lose consciousness?": 0.06355895940263177,
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": 0.061828306585410955,
+   "Have you noticed a wheezing sound when you exhale?": 0.044989328850587186,
+   "Do you have a cough?": 0.02669777472725353,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.024439642174202133
+  }
+ },
+ "Epiglottitis": {
+  "train_positive_diagnosis": 17209,
+  "train_negative_diagnosis": 1008393,
+  "test_positive_diagnosis": 2364,
+  "test_negative_diagnosis": 132165,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9998837817421117,
+   "recall": 0.9997675634842234,
+   "f1": 0.9998837682338583
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9996654996320496,
+   "recall": 1.0,
+   "f1": 0.9905719673161535
+  },
+  "top10_relevant_symptoms": {
+   "Have you noticed a high pitched sound when breathing in?": 0.18672620086609115,
+   "Do you have difficulty swallowing, or have a feeling of discomfort/blockage when swallowing?": 0.15383879809000586,
+   "Have you noticed that you produce more saliva than usual?": 0.15288059587062983,
+   "Have you noticed that the tone of your voice has become deeper, softer or hoarse?": 0.1369692315099743,
+   "Do you have pain that improves when you lean forward?": 0.1179010772561422,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.04293827973090091,
+   "Do you have a cough?": 0.039329005396443434,
+   "AGE": 0.031096868417687572,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.029577787587816925,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.016812543174117737
+  }
+ },
+ "Guillain-Barr\u00e9 syndrome": {
+  "train_positive_diagnosis": 22867,
+  "train_negative_diagnosis": 1002735,
+  "test_positive_diagnosis": 2601,
+  "test_negative_diagnosis": 131928,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "top10_relevant_symptoms": {
+   "Do you have pain somewhere, related to your reason for consulting?": 0.15989073398076323,
+   "Have you noticed weakness in your facial muscles and/or eyes?": 0.15107667436515196,
+   "Do you feel weakness in both arms and/or both legs?": 0.1282687014937921,
+   "Do you have numbness, loss of sensation or tingling in the feet?": 0.10857791420254104,
+   "Have you recently had numbness, loss of sensation or tingling, in both arms and legs and around your mouth?": 0.09414874952233528,
+   "Have you had weakness or paralysis on one side of the face, which may still be present or completely resolved?": 0.08361739537264694,
+   "Do you currently, or did you ever, have numbness, loss of sensitivity or tingling anywhere on your body?": 0.07995811576080522,
+   "Did you previously, or do you currently, have any weakness/paralysis in one or more of your limbs or in your face?": 0.0770138301015687,
+   "Do you have a cough?": 0.01880354951399495,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.00804835941278528
+  }
+ },
+ "Acute laryngitis": {
+  "train_positive_diagnosis": 24129,
+  "train_negative_diagnosis": 1001473,
+  "test_positive_diagnosis": 3217,
+  "test_negative_diagnosis": 131312,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9944672385925649,
+   "recall": 0.9992954536035475,
+   "f1": 0.9944938235961311
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9893331549331371,
+   "recall": 0.9978240596829344,
+   "f1": 0.817313812858052
+  },
+  "top10_relevant_symptoms": {
+   "Have you noticed that the tone of your voice has become deeper, softer or hoarse?": 0.3521907070692072,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.09443539141045176,
+   "Do you have nasal congestion or a clear runny nose?": 0.07340735613976843,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.07008870848013654,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.06254424572072882,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.030944360666276944,
+   "Have you been coughing up blood?": 0.02540028388472808,
+   "Do you have a cough?": 0.02410250971945273,
+   "Do you have a sore throat?": 0.021634972664000763,
+   "Have you had significantly increased sweating?": 0.020428554913447538
+  }
+ },
+ "Croup": {
+  "train_positive_diagnosis": 2852,
+  "train_negative_diagnosis": 1022750,
+  "test_positive_diagnosis": 344,
+  "test_negative_diagnosis": 134185,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9998246844319776,
+   "recall": 1.0,
+   "f1": 0.9998247151621386
+  },
+  "test_set_metrics": {
+   "accuracy": 0.999226932482959,
+   "recall": 1.0,
+   "f1": 0.8686868686868687
+  },
+  "top10_relevant_symptoms": {
+   "AGE": 0.24447004943200681,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.16695375038865037,
+   "Have you noticed a high pitched sound when breathing in?": 0.1158137189669233,
+   "Does the person have a whooping cough?": 0.10483473388045865,
+   "Are your symptoms more prominent at night?": 0.08206325335119061,
+   "Have you noticed that you produce more saliva than usual?": 0.064118093700024,
+   "Do you have a cough?": 0.04457376810087695,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.029224815098795192,
+   "Do you have nasal congestion or a clear runny nose?": 0.02698565686656612,
+   "Have you had significantly increased sweating?": 0.010302325181243235
+  }
+ },
+ "PSVT": {
+  "train_positive_diagnosis": 18781,
+  "train_negative_diagnosis": 1006821,
+  "test_positive_diagnosis": 2443,
+  "test_negative_diagnosis": 132086,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.998801980725201,
+   "recall": 1.0,
+   "f1": 0.9988034142579838
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9969448966393863,
+   "recall": 0.9995906672124437,
+   "f1": 0.9223796033994334
+  },
+  "top10_relevant_symptoms": {
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 0.41665124948150956,
+   "Do you feel slightly dizzy or lightheaded?": 0.13088923040708159,
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": 0.12931893398382738,
+   "Do you have a cough?": 0.04442507081562526,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.021591798600771383,
+   "Do you have symptoms that are increased with physical exertion but alleviated with rest?": 0.015801027871109888,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.015429776149344113,
+   "Do you have nasal congestion or a clear runny nose?": 0.014852275239523054,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.014530223600804304,
+   "Have you had significantly increased sweating?": 0.013394625923500682
+  }
+ },
+ "Atrial fibrillation": {
+  "train_positive_diagnosis": 21036,
+  "train_negative_diagnosis": 1004566,
+  "test_positive_diagnosis": 2831,
+  "test_negative_diagnosis": 131698,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.999239399125309,
+   "recall": 1.0,
+   "f1": 0.999239977199316
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9982234313791079,
+   "recall": 1.0,
+   "f1": 0.9594983901033722
+  },
+  "top10_relevant_symptoms": {
+   "Do you have pain somewhere, related to your reason for consulting?": 0.23054455809198596,
+   "Do you feel your heart is beating very irregularly or in a disorganized pattern?": 0.19505609153899198,
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 0.15543907993056133,
+   "Do you feel slightly dizzy or lightheaded?": 0.09103572682980826,
+   "Do you have symptoms that are increased with physical exertion but alleviated with rest?": 0.0735419786675025,
+   "Do you have a cough?": 0.03927712284624883,
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": 0.019102411233340662,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.018943078005696164,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.012966868971845813,
+   "Have you noticed a wheezing sound when you exhale?": 0.012367122802509236
+  }
+ },
+ "Bronchiectasis": {
+  "train_positive_diagnosis": 18795,
+  "train_negative_diagnosis": 1006807,
+  "test_positive_diagnosis": 2454,
+  "test_negative_diagnosis": 132075,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9974461292897047,
+   "recall": 1.0,
+   "f1": 0.9974526349307435
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9951831947015142,
+   "recall": 0.9995925020374898,
+   "f1": 0.8833273316528628
+  },
+  "top10_relevant_symptoms": {
+   "Do you have pain somewhere, related to your reason for consulting?": 0.26283769528702877,
+   "Do you have a cough that produces colored or more abundant sputum than usual?": 0.2582975068278475,
+   "Have you been coughing up blood?": 0.07390937895313048,
+   "Do you have a cough?": 0.06536667659120103,
+   "Have you noticed a wheezing sound when you exhale?": 0.04429869649425842,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.043316725448226054,
+   "Do you have nasal congestion or a clear runny nose?": 0.03150324366322061,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.029450571141414777,
+   "AGE": 0.01557318302615643,
+   "Have you had an involuntary weight loss over the last 3 months?": 0.011947209529323452
+  }
+ },
+ "Allergic sinusitis": {
+  "train_positive_diagnosis": 26203,
+  "train_negative_diagnosis": 999399,
+  "test_positive_diagnosis": 2411,
+  "test_negative_diagnosis": 132118,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9999776999754699,
+   "recall": 1.0,
+   "f1": 0.9993782383419688
+  },
+  "top10_relevant_symptoms": {
+   "Do you have pain somewhere, related to your reason for consulting?": 0.25160147002053346,
+   "Is your nose or the back of your throat itchy?": 0.24617315273282178,
+   "Do you have severe itching in one or both eyes?": 0.1302593347502776,
+   "Do you have nasal congestion or a clear runny nose?": 0.11852500333189588,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.05133072158318664,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.027132026014221197,
+   "Do you have a cough?": 0.021144392192470298,
+   "Have you had significantly increased sweating?": 0.013741463779353674,
+   "Do you have a cough that produces colored or more abundant sputum than usual?": 0.011735469671583561,
+   "Have you been coughing up blood?": 0.011662497471303775
+  }
+ },
+ "Chagas": {
+  "train_positive_diagnosis": 9252,
+  "train_negative_diagnosis": 1016350,
+  "test_positive_diagnosis": 1077,
+  "test_negative_diagnosis": 133452,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9998661998528199,
+   "recall": 1.0,
+   "f1": 0.9917127071823205
+  },
+  "top10_relevant_symptoms": {
+   "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?": 0.1755657462933117,
+   "Have you had diarrhea or an increase in stool frequency?": 0.14197945026992254,
+   "Have you been unintentionally losing weight or have you lost your appetite?": 0.13056223510019752,
+   "Do you have swollen or painful lymph nodes?": 0.09970051869818092,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.08873902054555824,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.05628133667736969,
+   "Do you have a cough?": 0.040580032169139614,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.029062775927026746,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.026002674275737273,
+   "Do you have nasal congestion or a clear runny nose?": 0.01988705267702674
+  }
+ },
+ "Scombroid food poisoning": {
+  "train_positive_diagnosis": 18535,
+  "train_negative_diagnosis": 1007067,
+  "test_positive_diagnosis": 2486,
+  "test_negative_diagnosis": 132043,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9999776999754699,
+   "recall": 1.0,
+   "f1": 0.999396984924623
+  },
+  "top10_relevant_symptoms": {
+   "Did your cheeks suddenly turn red?": 0.3185339009748781,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.16037455336547402,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.15353867986814543,
+   "Have you had diarrhea or an increase in stool frequency?": 0.056850098240284544,
+   "Have you noticed a wheezing sound when you exhale?": 0.05522470012791422,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.04466102781982254,
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": 0.04084859015509884,
+   "Do you have a cough?": 0.02959285073102244,
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 0.028996374411297477,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.01706632999539918
+  }
+ },
+ "Myocarditis": {
+  "train_positive_diagnosis": 11073,
+  "train_negative_diagnosis": 1014529,
+  "test_positive_diagnosis": 1478,
+  "test_negative_diagnosis": 133051,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9971100876004696,
+   "recall": 0.9991872121376321,
+   "f1": 0.9971160778658976
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9896973886671275,
+   "recall": 0.9939106901217862,
+   "f1": 0.679463459759482
+  },
+  "top10_relevant_symptoms": {
+   "Do you feel out of breath with minimal physical effort?": 0.1894184698007157,
+   "Do you have symptoms that are increased with physical exertion but alleviated with rest?": 0.12764158276341045,
+   "Are your symptoms worse when lying down and alleviated while sitting up?": 0.1266103197146289,
+   "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?": 0.12314476911451301,
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 0.06452226001288289,
+   "Do you have a cough?": 0.043295039155902125,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.04259388636872361,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.039176370170643994,
+   "Do you have swelling in one or more areas of your body?": 0.024835823406256757,
+   "Do you have pain that is increased when you breathe in deeply?": 0.022954396451826082
+  }
+ },
+ "Larygospasm": {
+  "train_positive_diagnosis": 10998,
+  "train_negative_diagnosis": 1014604,
+  "test_positive_diagnosis": 785,
+  "test_negative_diagnosis": 133744,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 0.99996283329245,
+   "recall": 1.0,
+   "f1": 0.9968253968253968
+  },
+  "top10_relevant_symptoms": {
+   "Have you noticed a high pitched sound when breathing in?": 0.4228979257114961,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.22019157978709547,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.07858721649713785,
+   "Do you have a cough?": 0.05835311495441523,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.02427375727490345,
+   "Do you have nasal congestion or a clear runny nose?": 0.02213447594351939,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.012811863501016776,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.012407221505917687,
+   "Do you have swelling in one or more areas of your body?": 0.011672109831932802,
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 0.011246100679270512
+  }
+ },
+ "Acute dystonic reactions": {
+  "train_positive_diagnosis": 25982,
+  "train_negative_diagnosis": 999620,
+  "test_positive_diagnosis": 3302,
+  "test_negative_diagnosis": 131227,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 0.99996283329245,
+   "recall": 1.0,
+   "f1": 0.9992434558934785
+  },
+  "top10_relevant_symptoms": {
+   "Do you have pain somewhere, related to your reason for consulting?": 0.15524931497632197,
+   "Do you feel that muscle spasms or soreness in your neck are keeping you from turning your head to one side?": 0.1470245954167213,
+   "Do you have trouble keeping your tongue in your mouth?": 0.1444650276760035,
+   "Do you have annoying muscle spasms in your face, neck or any other part of your body?": 0.1416343520119354,
+   "Do you suddenly have difficulty or an inability to open your mouth or have jaw pain when opening it?": 0.12732696797471763,
+   "Have you ever felt like you were suffocating for a very short time associated with inability to breathe or speak?": 0.06357765736848299,
+   "Do you have a hard time opening/raising one or both eyelids?": 0.061328907635314775,
+   "Are you unable to control the direction of your eyes?": 0.05511091534237484,
+   "Do you have a cough?": 0.01837598131420432,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.010407844713052132
+  }
+ },
+ "Localized edema": {
+  "train_positive_diagnosis": 27825,
+  "train_negative_diagnosis": 997777,
+  "test_positive_diagnosis": 3734,
+  "test_negative_diagnosis": 130795,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.999874213836478,
+   "recall": 1.0,
+   "f1": 0.999874229656647
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9998067331207398,
+   "recall": 1.0,
+   "f1": 0.996530557779557
+  },
+  "top10_relevant_symptoms": {
+   "Do you have swelling in one or more areas of your body?": 0.39044296050817057,
+   "Have you gained weight recently?": 0.11864897255863381,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.09599882069205082,
+   "Do you have a cough?": 0.06245096918179226,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.0553044530361214,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.030044531471888916,
+   "Do you have nasal congestion or a clear runny nose?": 0.029745666448842172,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.023922438072705783,
+   "Have you had significantly increased sweating?": 0.01620854792521348,
+   "Have you been coughing up blood?": 0.015339387888826432
+  }
+ },
+ "SLE": {
+  "train_positive_diagnosis": 11867,
+  "train_negative_diagnosis": 1013735,
+  "test_positive_diagnosis": 1564,
+  "test_negative_diagnosis": 132965,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9993679952810315,
+   "recall": 0.9996629308165501,
+   "f1": 0.9993681816267217
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9964617294412357,
+   "recall": 0.9968030690537084,
+   "f1": 0.867557039510295
+  },
+  "top10_relevant_symptoms": {
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.28821809913736984,
+   "Do you have painful mouth ulcers or sores?": 0.15518421738841637,
+   "Do you constantly feel fatigued or do you have non-restful sleep?": 0.09873249561539857,
+   "Do you have a cough?": 0.056733251896443064,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.04597927506154499,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.03404287691385993,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.027025580626375962,
+   "Do you have nasal congestion or a clear runny nose?": 0.021701452535955724,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.020695292818900937,
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": 0.01804398022078634
+  }
+ },
+ "Tuberculosis": {
+  "train_positive_diagnosis": 16245,
+  "train_negative_diagnosis": 1009357,
+  "test_positive_diagnosis": 2080,
+  "test_negative_diagnosis": 132449,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9976300400123115,
+   "recall": 0.9996922129886119,
+   "f1": 0.9976349172221027
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9953838949222844,
+   "recall": 1.0,
+   "f1": 0.8701108554695671
+  },
+  "top10_relevant_symptoms": {
+   "Do you have pain somewhere, related to your reason for consulting?": 0.25026580095475337,
+   "Do you have a cough?": 0.2118550844159895,
+   "Have you been coughing up blood?": 0.13386759273047188,
+   "Have you had an involuntary weight loss over the last 3 months?": 0.08218331328293078,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.05715484740537394,
+   "Do you have nasal congestion or a clear runny nose?": 0.04009377877251212,
+   "Do you have a cough that produces colored or more abundant sputum than usual?": 0.02674703574991456,
+   "Have you noticed a wheezing sound when you exhale?": 0.024701360158751257,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.015637895012024512,
+   "Have you had significantly increased sweating?": 0.014459561995789629
+  }
+ },
+ "Unstable angina": {
+  "train_positive_diagnosis": 21244,
+  "train_negative_diagnosis": 1004358,
+  "test_positive_diagnosis": 2880,
+  "test_negative_diagnosis": 131649,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9956693654678969,
+   "recall": 0.9962813029561288,
+   "f1": 0.9956720139248249
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9849697834667618,
+   "recall": 0.9857638888888889,
+   "f1": 0.7374025974025974
+  },
+  "top10_relevant_symptoms": {
+   "Do you find that your symptoms have worsened over the last 2 weeks and that progressively less effort is required to cause the symptoms?": 0.22629774015027163,
+   "Do you have symptoms that are increased with physical exertion but alleviated with rest?": 0.14708857322630117,
+   "Do you have chest pain even at rest?": 0.1467446633651314,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.0702990875318217,
+   "Do you constantly feel fatigued or do you have non-restful sleep?": 0.05855316422854935,
+   "Have you had significantly increased sweating?": 0.05384204714174513,
+   "AGE": 0.03660114380650147,
+   "Do you have a cough?": 0.03313909217873972,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.02660134944177491,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.019875489008350854
+  }
+ },
+ "Stable angina": {
+  "train_positive_diagnosis": 16995,
+  "train_negative_diagnosis": 1008607,
+  "test_positive_diagnosis": 2386,
+  "test_negative_diagnosis": 132143,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9987937628714327,
+   "recall": 0.9994115916446014,
+   "f1": 0.9987945076592867
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9969671966639163,
+   "recall": 0.9995808885163453,
+   "f1": 0.9212050984936268
+  },
+  "top10_relevant_symptoms": {
+   "Do you have symptoms that are increased with physical exertion but alleviated with rest?": 0.29819761436113673,
+   "Do you constantly feel fatigued or do you have non-restful sleep?": 0.08479646104557352,
+   "Do you have a cough?": 0.06852909518204597,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.06851624255333785,
+   "AGE": 0.040656588084847095,
+   "Have you had significantly increased sweating?": 0.031385135209975025,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.030178296132026546,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.029471953682287392,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.0279515058327091,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.0273459823396056
+  }
+ },
+ "Ebola": {
+  "train_positive_diagnosis": 718,
+  "train_negative_diagnosis": 1024884,
+  "test_positive_diagnosis": 100,
+  "test_negative_diagnosis": 134429,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9999182332433899,
+   "recall": 1.0,
+   "f1": 0.947867298578199
+  },
+  "top10_relevant_symptoms": {
+   "Have you noticed any unusual bleeding or bruising related to your consultation today?": 0.2218990346460245,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.1886899167751335,
+   "Have you felt confused or disorientated lately?": 0.1399368581032575,
+   "Have you had diarrhea or an increase in stool frequency?": 0.07998404464128048,
+   "Do you have a sore throat?": 0.07223885406359379,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.04752224806187626,
+   "Do you have diffuse (widespread) muscle pain?": 0.04159394826621833,
+   "Do you constantly feel fatigued or do you have non-restful sleep?": 0.03815728532594739,
+   "Do you have a cough?": 0.022548866171589715,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.015565441489420895
+  }
+ },
+ "Acute otitis media": {
+  "train_positive_diagnosis": 25917,
+  "train_negative_diagnosis": 999685,
+  "test_positive_diagnosis": 3516,
+  "test_negative_diagnosis": 131013,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9788169927074893,
+   "recall": 0.9993054751707373,
+   "f1": 0.9792422867513612
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9565075188249373,
+   "recall": 0.997155858930603,
+   "f1": 0.5451294410324186
+  },
+  "top10_relevant_symptoms": {
+   "Are you more irritable or has your mood been very unstable recently?": 0.16917632964547047,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.10035697282075456,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.07512293056492234,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.06124593864390638,
+   "Do you have nasal congestion or a clear runny nose?": 0.06088504072708716,
+   "Have you been coughing up blood?": 0.051128862993279234,
+   "Have you had significantly increased sweating?": 0.039448616292537764,
+   "Do you have a sore throat?": 0.03370831411229239,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.032705615738081444,
+   "Have you noticed that the tone of your voice has become deeper, softer or hoarse?": 0.028041649584424178
+  }
+ },
+ "Panic attack": {
+  "train_positive_diagnosis": 25019,
+  "train_negative_diagnosis": 1000583,
+  "test_positive_diagnosis": 3387,
+  "test_negative_diagnosis": 131142,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9999400455653703,
+   "recall": 0.9999600303769135,
+   "f1": 0.9999400467635244
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9996431996075196,
+   "recall": 0.9991142604074402,
+   "f1": 0.9929577464788732
+  },
+  "top10_relevant_symptoms": {
+   "Have you recently had numbness, loss of sensation or tingling, in both arms and legs and around your mouth?": 0.1640363815753706,
+   "Do you feel like you are detached from your own body or your surroundings?": 0.15269209766162287,
+   "Do you feel like you are dying or were you afraid that you were about do die?": 0.15227840589966804,
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 0.10623975428419112,
+   "Do you feel like you are (or were) choking or suffocating?": 0.07684095862069107,
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": 0.07084768031266933,
+   "Do you currently, or did you ever, have numbness, loss of sensitivity or tingling anywhere on your body?": 0.062143989546643186,
+   "Have you had significantly increased sweating?": 0.045133012301291874,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.025593442534640434,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.019271013211413977
+  }
+ },
+ "Bronchospasm / acute asthma exacerbation": {
+  "train_positive_diagnosis": 19875,
+  "train_negative_diagnosis": 1005727,
+  "test_positive_diagnosis": 2222,
+  "test_negative_diagnosis": 132307,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9973836477987421,
+   "recall": 1.0,
+   "f1": 0.9973904752346063
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9941499602316229,
+   "recall": 1.0,
+   "f1": 0.8495507551137449
+  },
+  "top10_relevant_symptoms": {
+   "Do you have pain somewhere, related to your reason for consulting?": 0.2576183836520004,
+   "Have you noticed a wheezing sound when you exhale?": 0.24626924207027256,
+   "Do you have a cough?": 0.09636073224348406,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.07331356160824139,
+   "Do you have a cough that produces colored or more abundant sputum than usual?": 0.03769247489028729,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.030604433764421467,
+   "Do you have nasal congestion or a clear runny nose?": 0.028910365739090657,
+   "Have you been coughing up blood?": 0.02365844940740544,
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 0.01427091764612716,
+   "Have you had significantly increased sweating?": 0.014045285890112965
+  }
+ },
+ "Bronchitis": {
+  "train_positive_diagnosis": 26400,
+  "train_negative_diagnosis": 999202,
+  "test_positive_diagnosis": 3594,
+  "test_negative_diagnosis": 130935,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9955492424242425,
+   "recall": 0.9950757575757576,
+   "f1": 0.9955471340596873
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9889689211991467,
+   "recall": 0.9869226488592098,
+   "f1": 0.8269993005362555
+  },
+  "top10_relevant_symptoms": {
+   "Do you have a cough that produces colored or more abundant sputum than usual?": 0.22883818613808757,
+   "Are your symptoms more prominent at night?": 0.1335285572321808,
+   "Do you have a cough?": 0.1190710696550297,
+   "Have you noticed a wheezing sound when you exhale?": 0.08569087608892777,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.06863965866210328,
+   "Do you have a sore throat?": 0.0630542572711752,
+   "Have you had significantly increased sweating?": 0.034751258694682,
+   "Do you have diffuse (widespread) muscle pain?": 0.03168437021112282,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.02924115444099342,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.028909338373920943
+  }
+ },
+ "Acute COPD exacerbation / infection": {
+  "train_positive_diagnosis": 17661,
+  "train_negative_diagnosis": 1007941,
+  "test_positive_diagnosis": 2153,
+  "test_negative_diagnosis": 132376,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.993431855500821,
+   "recall": 0.9999433780646623,
+   "f1": 0.9934743474347436
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9886121208066663,
+   "recall": 0.9990710636321412,
+   "f1": 0.7374014398354474
+  },
+  "top10_relevant_symptoms": {
+   "Have you noticed a wheezing sound when you exhale?": 0.25343831674348843,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.21963604801404235,
+   "Do you have a cough that produces colored or more abundant sputum than usual?": 0.13640745736079046,
+   "AGE": 0.07061941490322074,
+   "Do you have a cough?": 0.06824013665462277,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.03517137129949798,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.03172042688561911,
+   "Do you have nasal congestion or a clear runny nose?": 0.019913327956666126,
+   "Have you been coughing up blood?": 0.019537131369626475,
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 0.010454433211523931
+  }
+ },
+ "Pulmonary embolism": {
+  "train_positive_diagnosis": 27468,
+  "train_negative_diagnosis": 998134,
+  "test_positive_diagnosis": 3679,
+  "test_negative_diagnosis": 130850,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9956312800349497,
+   "recall": 0.9955584680355323,
+   "f1": 0.9956309619165513
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9893405882746471,
+   "recall": 0.9921174232128296,
+   "f1": 0.8358140599954202
+  },
+  "top10_relevant_symptoms": {
+   "Do you have swelling in one or more areas of your body?": 0.2513681061324154,
+   "Did you lose consciousness?": 0.16551768606093376,
+   "Do you have pain that is increased when you breathe in deeply?": 0.1358019424689381,
+   "Have you been coughing up blood?": 0.09765855594802528,
+   "Do you have a cough?": 0.05757187626427906,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.03608738986080327,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.024905132805076547,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.022501398513818396,
+   "Do you have nasal congestion or a clear runny nose?": 0.01560563879235093,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.015523183621977096
+  }
+ },
+ "URTI": {
+  "train_positive_diagnosis": 64368,
+  "train_negative_diagnosis": 961234,
+  "test_positive_diagnosis": 8743,
+  "test_negative_diagnosis": 125786,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9930322520507084,
+   "recall": 0.9920146656723838,
+   "f1": 0.9930251545429806
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9903292226954783,
+   "recall": 0.9913073315795493,
+   "f1": 0.9301851354977194
+  },
+  "top10_relevant_symptoms": {
+   "Do you have a sore throat?": 0.23845474814928874,
+   "Have you had significantly increased sweating?": 0.11397306651685322,
+   "Do you have diffuse (widespread) muscle pain?": 0.10614309934103926,
+   "Do you have nasal congestion or a clear runny nose?": 0.09403070881065459,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.061304781596125076,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.05566703135186842,
+   "Do you have a cough that produces colored or more abundant sputum than usual?": 0.044199973463691394,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.0381337299922638,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.0328669567551609,
+   "Do you have a cough?": 0.030349252059416625
+  }
+ },
+ "Influenza": {
+  "train_positive_diagnosis": 26812,
+  "train_negative_diagnosis": 998790,
+  "test_positive_diagnosis": 3554,
+  "test_negative_diagnosis": 130975,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9995897359391317,
+   "recall": 0.9994032522751007,
+   "f1": 0.9995896594173164
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9973908971299869,
+   "recall": 0.9971862689926843,
+   "f1": 0.9528162387417662
+  },
+  "top10_relevant_symptoms": {
+   "Do you feel so tired that you are unable to do your usual activities or are you stuck in your bed all day long?": 0.1696439891985708,
+   "Have you had chills or shivers?": 0.11853843847822061,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.1094568590420172,
+   "Do you have diffuse (widespread) muscle pain?": 0.10261385861266288,
+   "Have you recently had a loss of appetite or do you get full more quickly then usually?": 0.08775963137337343,
+   "Have you had significantly increased sweating?": 0.06431398017225032,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.05203963248643703,
+   "Do you have a cough?": 0.05013908933664505,
+   "Do you have a sore throat?": 0.04291801841779396,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.02723260857883833
+  }
+ },
+ "Pneumonia": {
+  "train_positive_diagnosis": 25761,
+  "train_negative_diagnosis": 999841,
+  "test_positive_diagnosis": 3542,
+  "test_negative_diagnosis": 130987,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9995019661188294,
+   "recall": 0.9988706945228685,
+   "f1": 0.990620187596248
+  },
+  "top10_relevant_symptoms": {
+   "Do you have a cough that produces colored or more abundant sputum than usual?": 0.16467082685934134,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.1470030015169872,
+   "Have you had chills or shivers?": 0.10664423253552986,
+   "Have you recently had a loss of appetite or do you get full more quickly then usually?": 0.08921244353531624,
+   "Do you have diffuse (widespread) muscle pain?": 0.08103767561049413,
+   "Are your symptoms more prominent at night?": 0.07092086524776706,
+   "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?": 0.07028176042774495,
+   "Do you have pain that is increased when you breathe in deeply?": 0.04598290978468951,
+   "Do you have a cough?": 0.041612136641902275,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.025667847491919953
+  }
+ },
+ "Acute rhinosinusitis": {
+  "train_positive_diagnosis": 13578,
+  "train_negative_diagnosis": 1012024,
+  "test_positive_diagnosis": 1829,
+  "test_negative_diagnosis": 132700,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9842760347621152,
+   "recall": 0.9957283841508322,
+   "f1": 0.9844540721593183
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9694266663693331,
+   "recall": 0.9890650628758885,
+   "f1": 0.4679860302677532
+  },
+  "top10_relevant_symptoms": {
+   "Do you have greenish or yellowish nasal discharge?": 0.3074164591271339,
+   "Have you lost your sense of smell?": 0.2307658642256788,
+   "Do you have a cough?": 0.07904526590651595,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.05462902150476368,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.04544885153709437,
+   "Do you have nasal congestion or a clear runny nose?": 0.025575078880869618,
+   "AGE": 0.024567051093001963,
+   "Have you been coughing up blood?": 0.02193805428795238,
+   "Have you had significantly increased sweating?": 0.020844269547096388,
+   "Do you have a sore throat?": 0.01646842197413272
+  }
+ },
+ "Chronic rhinosinusitis": {
+  "train_positive_diagnosis": 20579,
+  "train_negative_diagnosis": 1005023,
+  "test_positive_diagnosis": 2747,
+  "test_negative_diagnosis": 131782,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9920550075319501,
+   "recall": 0.9998542203216871,
+   "f1": 0.9921164926830444
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9842487493402909,
+   "recall": 0.9981798325445941,
+   "f1": 0.7212942259634355
+  },
+  "top10_relevant_symptoms": {
+   "Have you lost your sense of smell?": 0.32486285183260577,
+   "Do you have greenish or yellowish nasal discharge?": 0.15944904409234928,
+   "Do you have a cough?": 0.10968545180004258,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.0582769221860188,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.05363041765174173,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.04396405486416342,
+   "Do you have nasal congestion or a clear runny nose?": 0.03964724263787177,
+   "Have you been coughing up blood?": 0.023409946590326056,
+   "Have you had significantly increased sweating?": 0.019875388141109604,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.01569771569790295
+  }
+ },
+ "Bronchiolitis": {
+  "train_positive_diagnosis": 261,
+  "train_negative_diagnosis": 1025341,
+  "test_positive_diagnosis": 36,
+  "test_negative_diagnosis": 134493,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9996654996320496,
+   "recall": 1.0,
+   "f1": 0.6153846153846153
+  },
+  "top10_relevant_symptoms": {
+   "AGE": 0.19336905413381447,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.17566464603469997,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.13713510768868367,
+   "Do you have nasal congestion or a clear runny nose?": 0.12097029593899919,
+   "Have you noticed a wheezing sound when you exhale?": 0.0746204772565904,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.07161918069361639,
+   "Do you have a decrease in appetite?": 0.06821176383653804,
+   "Do you ever temporarily stop breathing while you\u2019re asleep?": 0.05514464661060925,
+   "Have you had significantly increased sweating?": 0.01521410319066844,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.013473392009718888
+  }
+ },
+ "Pulmonary neoplasm": {
+  "train_positive_diagnosis": 14457,
+  "train_negative_diagnosis": 1011145,
+  "test_positive_diagnosis": 1918,
+  "test_negative_diagnosis": 132611,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.998997025662309,
+   "recall": 0.999308293560213,
+   "f1": 0.998997337758877
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9957332619732548,
+   "recall": 0.9953076120959332,
+   "f1": 0.8693078324225866
+  },
+  "top10_relevant_symptoms": {
+   "Have you had an involuntary weight loss over the last 3 months?": 0.23820056699244418,
+   "Have you been coughing up blood?": 0.21172456116537028,
+   "Have you recently had a loss of appetite or do you get full more quickly then usually?": 0.10229804870652895,
+   "AGE": 0.07339833094667986,
+   "Do you constantly feel fatigued or do you have non-restful sleep?": 0.06738306237951318,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.046347515324944535,
+   "Do you have a cough?": 0.042054152159781956,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.031826280806982854,
+   "Do you have nasal congestion or a clear runny nose?": 0.024040964331416358,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.016532218357657974
+  }
+ },
+ "Possible NSTEMI / STEMI": {
+  "train_positive_diagnosis": 21260,
+  "train_negative_diagnosis": 1004342,
+  "test_positive_diagnosis": 2911,
+  "test_negative_diagnosis": 131618,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9969190968955786,
+   "recall": 0.9988711194731891,
+   "f1": 0.9969250991714198
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9919571244861702,
+   "recall": 0.9958777052559258,
+   "f1": 0.8427325581395347
+  },
+  "top10_relevant_symptoms": {
+   "Have you recently had a loss of appetite or do you get full more quickly then usually?": 0.15105598418666202,
+   "Have you had significantly increased sweating?": 0.12615911894847834,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.10293007953068013,
+   "Do you constantly feel fatigued or do you have non-restful sleep?": 0.08319916294370332,
+   "Do you have a cough?": 0.06136264097620165,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.04502811132355356,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.03400106142292884,
+   "AGE": 0.03394383792931275,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.033064328383214714,
+   "Do you have symptoms that are increased with physical exertion but alleviated with rest?": 0.0254868333688228
+  }
+ },
+ "Sarcoidosis": {
+  "train_positive_diagnosis": 21285,
+  "train_negative_diagnosis": 1004317,
+  "test_positive_diagnosis": 2902,
+  "test_negative_diagnosis": 131627,
+  "balanced_train_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "test_set_metrics": {
+   "accuracy": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "top10_relevant_symptoms": {
+   "Do you have swollen or painful lymph nodes?": 0.2101215505246884,
+   "Have you noticed a diffuse (widespread) redness in one or both eyes?": 0.16008605075458535,
+   "Have you lost consciousness associated with violent and sustained muscle contractions or had an absence episode?": 0.15751541614428227,
+   "Have you had any vaginal discharge?": 0.10427529351727226,
+   "Do you have a cough?": 0.05394066449873952,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.04911099523094734,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.03375910105098323,
+   "Do you have nasal congestion or a clear runny nose?": 0.020356120036122083,
+   "Do you have swelling in one or more areas of your body?": 0.018441071826573483,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.018412452098270457
+  }
+ },
+ "Pancreatic neoplasm": {
+  "train_positive_diagnosis": 18846,
+  "train_negative_diagnosis": 1006756,
+  "test_positive_diagnosis": 2585,
+  "test_negative_diagnosis": 131944,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.999708160882946,
+   "recall": 0.9998938766847076,
+   "f1": 0.9997082150720178
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9985281983810183,
+   "recall": 0.9996131528046421,
+   "f1": 0.9631010063361908
+  },
+  "top10_relevant_symptoms": {
+   "Do you have pale stools and dark urine?": 0.21194480507772226,
+   "Have you had an involuntary weight loss over the last 3 months?": 0.14981589242864127,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 0.09378749215264219,
+   "Have you had diarrhea or an increase in stool frequency?": 0.09207360305901081,
+   "Do you constantly feel fatigued or do you have non-restful sleep?": 0.08232326150250338,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.06543366627306597,
+   "Are you feeling nauseous or do you feel like vomiting?": 0.04613457254966036,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.028436170027414026,
+   "AGE": 0.020603004175669314,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.02041167107623389
+  }
+ },
+ "Acute pulmonary edema": {
+  "train_positive_diagnosis": 19018,
+  "train_negative_diagnosis": 1006584,
+  "test_positive_diagnosis": 2598,
+  "test_negative_diagnosis": 131931,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.9999474182353559,
+   "recall": 1.0,
+   "f1": 0.9999474210000525
+  },
+  "test_set_metrics": {
+   "accuracy": 0.9995539995093995,
+   "recall": 0.9996150885296382,
+   "f1": 0.9885801294251998
+  },
+  "top10_relevant_symptoms": {
+   "Do you have swelling in one or more areas of your body?": 0.24254460432814307,
+   "Do you have bouts of choking or shortness of breath that wake you up at night?": 0.13351281823798974,
+   "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?": 0.12952720019451291,
+   "Do you have symptoms that are increased with physical exertion but alleviated with rest?": 0.11225216612916564,
+   "Are your symptoms worse when lying down and alleviated while sitting up?": 0.10789638804949978,
+   "Have you had significantly increased sweating?": 0.05092376279844217,
+   "Do you have a cough?": 0.034969533923330486,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.027736982508293054,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.018093185959619118,
+   "AGE": 0.017628944452685324
+  }
+ },
+ "Pericarditis": {
+  "train_positive_diagnosis": 22785,
+  "train_negative_diagnosis": 1002817,
+  "test_positive_diagnosis": 3095,
+  "test_negative_diagnosis": 131434,
+  "balanced_train_set_metrics": {
+   "accuracy": 0.997761685319289,
+   "recall": 0.9998683344305465,
+   "f1": 0.9977663907502299
+  },
+  "test_set_metrics": {
+   "accuracy": 0.995027094529804,
+   "recall": 0.9993537964458804,
+   "f1": 0.9024070021881836
+  },
+  "top10_relevant_symptoms": {
+   "Are your symptoms worse when lying down and alleviated while sitting up?": 0.2140737079848894,
+   "Do you have pain that is increased when you breathe in deeply?": 0.18283648251419815,
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 0.10648789134811672,
+   "Do you have a cough?": 0.06968682007681548,
+   "Do you have pain somewhere, related to your reason for consulting?": 0.05029110385928185,
+   "Do you have swelling in one or more areas of your body?": 0.030562228611217004,
+   "Do you have a fever (either felt or measured with a thermometer)?": 0.02751092570985786,
+   "Do you have symptoms that are increased with physical exertion but alleviated with rest?": 0.02153110187022749,
+   "Do you have nasal congestion or a clear runny nose?": 0.021333317489319888,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 0.020825606752726225
+  }
+ }
+}
