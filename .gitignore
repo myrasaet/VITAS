@@ -6,5 +6,4 @@ data/output/error_analysis_questionnaire/*.jpg
 data/output/error_analysis/*.csv
 data/output/error_analysis_questionnaire/*.csv
 data/output/patients
-data/output/consultation
 src/__pycache__
