@@ -7,3 +7,5 @@ data/output/error_analysis/*.csv
 data/output/error_analysis_questionnaire/*.csv
 data/output/patients
 src/__pycache__
+.Rproj.user
+data/processed/train.arrow

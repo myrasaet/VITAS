@@ -17,7 +17,8 @@ box::use(
   magrittr[...],
   purrr[...],
   tidyr[...],
-  jsonlite[...]
+  jsonlite[...],
+  stringr[...]
 )
 
 processed_path <- here("data","processed")
@@ -38,15 +39,12 @@ pull_training <-
         read_csv(file  = here(input_path,
                               "release_train_patients"))
       
-      # Add patient Id
-      release_train_patients <- release_train_patients_raw %>% 
-        mutate(patientId = 1:nrow(.), .before = AGE)
       
-      
-      
-      arrow::write_feather(x = release_train_patients, 
+      arrow::write_feather(x = release_train_patients_raw, 
                            sink = here(processed_path, 
                                        "train.arrow"))
+      release_train_patients <- 
+        arrow::open_dataset("data/processed/train.arrow", format = "arrow")
       
       message(
         paste0("Saved to ", 
@@ -56,9 +54,7 @@ pull_training <-
     } else {
       
       release_train_patients <- 
-        arrow::read_feather(
-          file = here("data","processed","train.arrow")
-        )
+        arrow::open_dataset("data/processed/train.arrow", format = "arrow")
       
     }
     
