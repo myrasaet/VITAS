@@ -1,0 +1,1106 @@
+{
+ "Spontaneous pneumothorax": {
+  "top_missed_evidences": {
+   "Do you have chest pain even at rest?": 3
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 3
+   }
+  }
+ },
+ "Cluster headache": {
+  "top_missed_evidences": {
+   "Do you have nasal congestion or a clear runny nose?": 9,
+   "Do you have pain somewhere, related to your reason for consulting?": 9,
+   "Do you feel that your eyes produce excessive tears?": 9
+  },
+  "initial_evidences_count": {
+   "Did you previously, or do you currently, have any weakness/paralysis in one or more of your limbs or in your face?": {
+    "is_relevant": false,
+    "count": 9
+   }
+  }
+ },
+ "Boerhaave": {
+  "top_missed_evidences": {
+   "Have you recently thrown up blood or something resembling coffee beans?": 245,
+   "Have you vomited several times or have you made several efforts to vomit?": 170
+  },
+  "initial_evidences_count": {
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 125
+   },
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 120
+   }
+  }
+ },
+ "Spontaneous rib fracture": {
+  "top_missed_evidences": {
+   "Do you have pain that is increased with movement?": 268,
+   "Do you have intense coughing fits?": 226
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 105
+   },
+   "Do you have a cough?": {
+    "is_relevant": true,
+    "count": 98
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 66
+   }
+  }
+ },
+ "GERD": {
+  "top_missed_evidences": {
+   "Do you have symptoms that get worse after eating?": 225,
+   "Do you have a burning sensation that starts in your stomach then goes up into your throat, and can be associated with a bitter taste in your mouth?": 190,
+   "Have you recently thrown up blood or something resembling coffee beans?": 75,
+   "Have you recently had stools that were black (like coal)?": 32
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 286
+   },
+   "Do you have a cough?": {
+    "is_relevant": true,
+    "count": 4
+   }
+  }
+ },
+ "HIV (initial infection)": {
+  "top_missed_evidences": {
+   "Do you have swollen or painful lymph nodes?": 351,
+   "Have you had an involuntary weight loss over the last 3 months?": 307,
+   "Have you had diarrhea or an increase in stool frequency?": 227,
+   "Do you have a sore throat?": 181,
+   "Have you had significantly increased sweating?": 55,
+   "Do you feel so tired that you are unable to do your usual activities or are you stuck in your bed all day long?": 34,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 31,
+   "Do you have diffuse (widespread) muscle pain?": 30,
+   "Are you feeling nauseous or do you feel like vomiting?": 6,
+   "Do you have pain somewhere, related to your reason for consulting?": 1
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 147
+   },
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": {
+    "is_relevant": true,
+    "count": 107
+   },
+   "Do you feel so tired that you are unable to do your usual activities or are you stuck in your bed all day long?": {
+    "is_relevant": true,
+    "count": 104
+   },
+   "Have you had significantly increased sweating?": {
+    "is_relevant": true,
+    "count": 47
+   },
+   "Do you have a sore throat?": {
+    "is_relevant": true,
+    "count": 32
+   },
+   "Have you had an involuntary weight loss over the last 3 months?": {
+    "is_relevant": true,
+    "count": 26
+   },
+   "Do you have diffuse (widespread) muscle pain?": {
+    "is_relevant": true,
+    "count": 23
+   },
+   "Have you had diarrhea or an increase in stool frequency?": {
+    "is_relevant": false,
+    "count": 7
+   },
+   "Are you feeling nauseous or do you feel like vomiting?": {
+    "is_relevant": true,
+    "count": 6
+   }
+  }
+ },
+ "Anemia": {
+  "top_missed_evidences": {
+   "Do you feel so tired that you are unable to do your usual activities or are you stuck in your bed all day long?": 924,
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": 896,
+   "Do you feel slightly dizzy or lightheaded?": 893,
+   "Have you recently had stools that were black (like coal)?": 855,
+   "Is your skin much paler than usual?": 822,
+   "Have you noticed light red blood or blood clots in your stool?": 802,
+   "Do you have very abundant or very long menstruation periods?": 276
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 766
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 683
+   },
+   "Do you constantly feel fatigued or do you have non-restful sleep?": {
+    "is_relevant": true,
+    "count": 102
+   }
+  }
+ },
+ "Viral pharyngitis": {
+  "top_missed_evidences": {
+   "Do you have nasal congestion or a clear runny nose?": 950
+  },
+  "initial_evidences_count": {
+   "Do you have a fever (either felt or measured with a thermometer)?": {
+    "is_relevant": true,
+    "count": 381
+   },
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 373
+   },
+   "Do you have a cough?": {
+    "is_relevant": true,
+    "count": 196
+   }
+  }
+ },
+ "Inguinal hernia": {
+  "top_missed_evidences": {
+   "Do you have intense coughing fits?": 131,
+   "Are the symptoms or pain increased with coughing, with an effort like lifting a weight or from forcing a bowel movement?": 39,
+   "Do you feel your abdomen is bloated or distended (swollen due to pressure from inside)?": 34,
+   "Have you been able to pass stools or gas since your symptoms increased?": 27
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 107
+   },
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": {
+    "is_relevant": true,
+    "count": 37
+   }
+  }
+ },
+ "Myasthenia gravis": {
+  "top_missed_evidences": {
+   "Do you have difficulty swallowing, or have a feeling of discomfort/blockage when swallowing?": 185,
+   "Do you have the perception of seeing two images of a single object seen overlapping or adjacent to each other (double vision)?": 182,
+   "Do you have a hard time opening/raising one or both eyelids?": 181,
+   "Do you feel weakness in both arms and/or both legs?": 174,
+   "Do you have difficulty articulating words/speaking?": 173,
+   "Do your symptoms of muscle weakness increase with fatigue and/or stress?": 158,
+   "Did you previously, or do you currently, have any weakness/paralysis in one or more of your limbs or in your face?": 156,
+   "Do you have pain or weakness in your jaw?": 154
+  },
+  "initial_evidences_count": {
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 269
+   }
+  }
+ },
+ "Whooping cough": {
+  "top_missed_evidences": {},
+  "initial_evidences_count": {}
+ },
+ "Anaphylaxis": {
+  "top_missed_evidences": {
+   "Do you have swelling in one or more areas of your body?": 792,
+   "Did you lose consciousness?": 448,
+   "Have you noticed a high pitched sound when breathing in?": 440,
+   "Have you noticed a wheezing sound when you exhale?": 307,
+   "Have you had diarrhea or an increase in stool frequency?": 268,
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": 247,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 67
+  },
+  "initial_evidences_count": {
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": {
+    "is_relevant": true,
+    "count": 211
+   },
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 148
+   },
+   "Have you been in contact with or ate something that you have an allergy to?": {
+    "is_relevant": true,
+    "count": 106
+   },
+   "Have you had diarrhea or an increase in stool frequency?": {
+    "is_relevant": true,
+    "count": 86
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": false,
+    "count": 72
+   },
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": {
+    "is_relevant": true,
+    "count": 67
+   },
+   "Are you feeling nauseous or do you feel like vomiting?": {
+    "is_relevant": true,
+    "count": 48
+   },
+   "Have you noticed a high pitched sound when breathing in?": {
+    "is_relevant": true,
+    "count": 37
+   },
+   "Have you noticed a wheezing sound when you exhale?": {
+    "is_relevant": true,
+    "count": 22
+   },
+   "Do you have swelling in one or more areas of your body?": {
+    "is_relevant": true,
+    "count": 8
+   }
+  }
+ },
+ "Epiglottitis": {
+  "top_missed_evidences": {
+   "Have you noticed a high pitched sound when breathing in?": 25,
+   "Do you have difficulty swallowing, or have a feeling of discomfort/blockage when swallowing?": 3
+  },
+  "initial_evidences_count": {
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 10
+   },
+   "Do you have a fever (either felt or measured with a thermometer)?": {
+    "is_relevant": true,
+    "count": 7
+   },
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 6
+   },
+   "Have you noticed that the tone of your voice has become deeper, softer or hoarse?": {
+    "is_relevant": true,
+    "count": 2
+   }
+  }
+ },
+ "Guillain-Barr\u00e9 syndrome": {
+  "top_missed_evidences": {
+   "Have you recently had numbness, loss of sensation or tingling, in both arms and legs and around your mouth?": 234,
+   "Do you feel weakness in both arms and/or both legs?": 222,
+   "Have you noticed weakness in your facial muscles and/or eyes?": 208,
+   "Do you have numbness, loss of sensation or tingling in the feet?": 191,
+   "Did you previously, or do you currently, have any weakness/paralysis in one or more of your limbs or in your face?": 179,
+   "Have you had weakness or paralysis on one side of the face, which may still be present or completely resolved?": 166,
+   "Do you currently, or did you ever, have numbness, loss of sensitivity or tingling anywhere on your body?": 163
+  },
+  "initial_evidences_count": {
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": false,
+    "count": 342
+   }
+  }
+ },
+ "Acute laryngitis": {
+  "top_missed_evidences": {
+   "Have you noticed that the tone of your voice has become deeper, softer or hoarse?": 2
+  },
+  "initial_evidences_count": {
+   "Do you have a cough?": {
+    "is_relevant": true,
+    "count": 2
+   }
+  }
+ },
+ "Croup": {
+  "top_missed_evidences": {
+   "Have you noticed a high pitched sound when breathing in?": 7,
+   "Do you have nasal congestion or a clear runny nose?": 7,
+   "Does the person have a whooping cough?": 6,
+   "Are your symptoms more prominent at night?": 3,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 2
+  },
+  "initial_evidences_count": {
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 6
+   },
+   "Do you have a fever (either felt or measured with a thermometer)?": {
+    "is_relevant": true,
+    "count": 3
+   },
+   "Have you noticed a high pitched sound when breathing in?": {
+    "is_relevant": true,
+    "count": 3
+   },
+   "Do you have nasal congestion or a clear runny nose?": {
+    "is_relevant": true,
+    "count": 2
+   }
+  }
+ },
+ "PSVT": {
+  "top_missed_evidences": {
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 703,
+   "Do you feel slightly dizzy or lightheaded?": 485,
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": 314
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": false,
+    "count": 410
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 294
+   }
+  }
+ },
+ "Atrial fibrillation": {
+  "top_missed_evidences": {
+   "Do you feel your heart is beating very irregularly or in a disorganized pattern?": 207,
+   "Do you feel slightly dizzy or lightheaded?": 134,
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 103
+  },
+  "initial_evidences_count": {
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 211
+   }
+  }
+ },
+ "Bronchiectasis": {
+  "top_missed_evidences": {
+   "Do you have a cough?": 3
+  },
+  "initial_evidences_count": {
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 3
+   }
+  }
+ },
+ "Allergic sinusitis": {
+  "top_missed_evidences": {
+   "Is your nose or the back of your throat itchy?": 297,
+   "Do you have severe itching in one or both eyes?": 253,
+   "Do you have nasal congestion or a clear runny nose?": 248
+  },
+  "initial_evidences_count": {
+   "Do you have a cough?": {
+    "is_relevant": false,
+    "count": 354
+   }
+  }
+ },
+ "Chagas": {
+  "top_missed_evidences": {
+   "Do you have swollen or painful lymph nodes?": 61,
+   "Have you had diarrhea or an increase in stool frequency?": 27,
+   "Have you been unintentionally losing weight or have you lost your appetite?": 13,
+   "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?": 7
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 39
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 20
+   },
+   "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?": {
+    "is_relevant": true,
+    "count": 4
+   },
+   "Are you feeling nauseous or do you feel like vomiting?": {
+    "is_relevant": true,
+    "count": 1
+   }
+  }
+ },
+ "Scombroid food poisoning": {
+  "top_missed_evidences": {
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 331,
+   "Did your cheeks suddenly turn red?": 329,
+   "Have you noticed a wheezing sound when you exhale?": 158,
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": 55,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 54,
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 54,
+   "Have you had diarrhea or an increase in stool frequency?": 42
+  },
+  "initial_evidences_count": {
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": {
+    "is_relevant": true,
+    "count": 132
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 116
+   },
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": {
+    "is_relevant": true,
+    "count": 83
+   },
+   "Are you feeling nauseous or do you feel like vomiting?": {
+    "is_relevant": true,
+    "count": 1
+   }
+  }
+ },
+ "Myocarditis": {
+  "top_missed_evidences": {
+   "Do you feel out of breath with minimal physical effort?": 115,
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 40,
+   "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?": 40
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 47
+   },
+   "Do you have symptoms that are increased with physical exertion but alleviated with rest?": {
+    "is_relevant": true,
+    "count": 46
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 22
+   },
+   "Are your symptoms worse when lying down and alleviated while sitting up?": {
+    "is_relevant": true,
+    "count": 17
+   },
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": {
+    "is_relevant": true,
+    "count": 10
+   }
+  }
+ },
+ "Larygospasm": {
+  "top_missed_evidences": {},
+  "initial_evidences_count": {}
+ },
+ "Acute dystonic reactions": {
+  "top_missed_evidences": {
+   "Do you have trouble keeping your tongue in your mouth?": 228,
+   "Do you have annoying muscle spasms in your face, neck or any other part of your body?": 215,
+   "Do you have a hard time opening/raising one or both eyelids?": 207,
+   "Have you ever felt like you were suffocating for a very short time associated with inability to breathe or speak?": 206,
+   "Do you feel that muscle spasms or soreness in your neck are keeping you from turning your head to one side?": 206,
+   "Do you suddenly have difficulty or an inability to open your mouth or have jaw pain when opening it?": 192,
+   "Are you unable to control the direction of your eyes?": 177
+  },
+  "initial_evidences_count": {
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 360
+   }
+  }
+ },
+ "Localized edema": {
+  "top_missed_evidences": {
+   "Do you have swelling in one or more areas of your body?": 1466,
+   "Have you gained weight recently?": 752
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 1466
+   }
+  }
+ },
+ "SLE": {
+  "top_missed_evidences": {
+   "Do you have painful mouth ulcers or sores?": 17
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 8
+   },
+   "Do you constantly feel fatigued or do you have non-restful sleep?": {
+    "is_relevant": true,
+    "count": 7
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 2
+   }
+  }
+ },
+ "Tuberculosis": {
+  "top_missed_evidences": {
+   "Have you had an involuntary weight loss over the last 3 months?": 21,
+   "Do you have a cough?": 21
+  },
+  "initial_evidences_count": {
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": false,
+    "count": 21
+   }
+  }
+ },
+ "Unstable angina": {
+  "top_missed_evidences": {
+   "Do you find that your symptoms have worsened over the last 2 weeks and that progressively less effort is required to cause the symptoms?": 352,
+   "Do you have chest pain even at rest?": 303,
+   "Do you have symptoms that are increased with physical exertion but alleviated with rest?": 22,
+   "Have you had significantly increased sweating?": 5
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 169
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 109
+   },
+   "Do you constantly feel fatigued or do you have non-restful sleep?": {
+    "is_relevant": true,
+    "count": 104
+   },
+   "Are you feeling nauseous or do you feel like vomiting?": {
+    "is_relevant": true,
+    "count": 72
+   },
+   "Have you had significantly increased sweating?": {
+    "is_relevant": true,
+    "count": 29
+   },
+   "Do you have symptoms that are increased with physical exertion but alleviated with rest?": {
+    "is_relevant": true,
+    "count": 18
+   }
+  }
+ },
+ "Stable angina": {
+  "top_missed_evidences": {},
+  "initial_evidences_count": {}
+ },
+ "Ebola": {
+  "top_missed_evidences": {
+   "Have you noticed any unusual bleeding or bruising related to your consultation today?": 20,
+   "Have you felt confused or disorientated lately?": 19,
+   "Do you have a sore throat?": 13,
+   "Do you have diffuse (widespread) muscle pain?": 9,
+   "Have you had diarrhea or an increase in stool frequency?": 6,
+   "Are you feeling nauseous or do you feel like vomiting?": 5,
+   "Do you have a cough?": 5,
+   "Do you constantly feel fatigued or do you have non-restful sleep?": 3
+  },
+  "initial_evidences_count": {
+   "Do you have a cough?": {
+    "is_relevant": true,
+    "count": 11
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 5
+   },
+   "Have you had diarrhea or an increase in stool frequency?": {
+    "is_relevant": true,
+    "count": 4
+   },
+   "Do you have a fever (either felt or measured with a thermometer)?": {
+    "is_relevant": true,
+    "count": 4
+   },
+   "Are you feeling nauseous or do you feel like vomiting?": {
+    "is_relevant": true,
+    "count": 2
+   }
+  }
+ },
+ "Acute otitis media": {
+  "top_missed_evidences": {
+   "Are you more irritable or has your mood been very unstable recently?": 1045,
+   "Do you have nasal congestion or a clear runny nose?": 385
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 374
+   },
+   "Do you have nasal congestion or a clear runny nose?": {
+    "is_relevant": false,
+    "count": 322
+   },
+   "Do you have a cough?": {
+    "is_relevant": true,
+    "count": 238
+   },
+   "Do you have a fever (either felt or measured with a thermometer)?": {
+    "is_relevant": true,
+    "count": 111
+   }
+  }
+ },
+ "Panic attack": {
+  "top_missed_evidences": {
+   "Have you recently had numbness, loss of sensation or tingling, in both arms and legs and around your mouth?": 539,
+   "Do you feel like you are dying or were you afraid that you were about do die?": 482,
+   "Do you feel like you are detached from your own body or your surroundings?": 478,
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 477,
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": 433,
+   "Do you currently, or did you ever, have numbness, loss of sensitivity or tingling anywhere on your body?": 362,
+   "Do you feel like you are (or were) choking or suffocating?": 353,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 4,
+   "Have you had significantly increased sweating?": 3,
+   "Do you have pain somewhere, related to your reason for consulting?": 2
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 339
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": false,
+    "count": 275
+   },
+   "Are you feeling nauseous or do you feel like vomiting?": {
+    "is_relevant": true,
+    "count": 76
+   },
+   "Have you had significantly increased sweating?": {
+    "is_relevant": true,
+    "count": 10
+   },
+   "Do you feel lightheaded and dizzy or do you feel like you are about to faint?": {
+    "is_relevant": true,
+    "count": 3
+   },
+   "Have you recently had numbness, loss of sensation or tingling, in both arms and legs and around your mouth?": {
+    "is_relevant": true,
+    "count": 1
+   },
+   "Do you currently, or did you ever, have numbness, loss of sensitivity or tingling anywhere on your body?": {
+    "is_relevant": true,
+    "count": 1
+   }
+  }
+ },
+ "Bronchospasm / acute asthma exacerbation": {
+  "top_missed_evidences": {
+   "Do you have a cough?": 6,
+   "Have you noticed a wheezing sound when you exhale?": 2
+  },
+  "initial_evidences_count": {
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 6
+   }
+  }
+ },
+ "Bronchitis": {
+  "top_missed_evidences": {
+   "Have you noticed a wheezing sound when you exhale?": 146,
+   "Do you have a cough that produces colored or more abundant sputum than usual?": 113,
+   "Do you have a sore throat?": 56,
+   "Do you have nasal congestion or a clear runny nose?": 51,
+   "Are your symptoms more prominent at night?": 2
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 63
+   },
+   "Do you have a fever (either felt or measured with a thermometer)?": {
+    "is_relevant": true,
+    "count": 41
+   },
+   "Do you have a cough?": {
+    "is_relevant": true,
+    "count": 37
+   },
+   "Do you have nasal congestion or a clear runny nose?": {
+    "is_relevant": false,
+    "count": 28
+   },
+   "Do you have a sore throat?": {
+    "is_relevant": true,
+    "count": 7
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 4
+   }
+  }
+ },
+ "Acute COPD exacerbation / infection": {
+  "top_missed_evidences": {
+   "Have you noticed a wheezing sound when you exhale?": 16,
+   "Do you have a cough?": 3
+  },
+  "initial_evidences_count": {
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 16
+   }
+  }
+ },
+ "Pulmonary embolism": {
+  "top_missed_evidences": {
+   "Do you have swelling in one or more areas of your body?": 424,
+   "Did you lose consciousness?": 127
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 203
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 132
+   },
+   "Do you have pain that is increased when you breathe in deeply?": {
+    "is_relevant": true,
+    "count": 84
+   },
+   "Have you been coughing up blood?": {
+    "is_relevant": true,
+    "count": 25
+   }
+  }
+ },
+ "URTI": {
+  "top_missed_evidences": {
+   "Do you have nasal congestion or a clear runny nose?": 963,
+   "Do you have a sore throat?": 915,
+   "Do you have diffuse (widespread) muscle pain?": 675,
+   "Do you have a cough that produces colored or more abundant sputum than usual?": 426
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 555
+   },
+   "Do you have a cough?": {
+    "is_relevant": true,
+    "count": 364
+   },
+   "Do you have a fever (either felt or measured with a thermometer)?": {
+    "is_relevant": true,
+    "count": 239
+   },
+   "Do you have a cough that produces colored or more abundant sputum than usual?": {
+    "is_relevant": true,
+    "count": 33
+   },
+   "Do you have nasal congestion or a clear runny nose?": {
+    "is_relevant": true,
+    "count": 25
+   },
+   "Do you have a sore throat?": {
+    "is_relevant": true,
+    "count": 7
+   },
+   "Have you had significantly increased sweating?": {
+    "is_relevant": true,
+    "count": 6
+   }
+  }
+ },
+ "Influenza": {
+  "top_missed_evidences": {
+   "Do you feel so tired that you are unable to do your usual activities or are you stuck in your bed all day long?": 142,
+   "Have you had chills or shivers?": 116,
+   "Do you have nasal congestion or a clear runny nose?": 70,
+   "Have you recently had a loss of appetite or do you get full more quickly then usually?": 60,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 50,
+   "Do you have diffuse (widespread) muscle pain?": 29,
+   "Do you have a sore throat?": 19,
+   "Have you had significantly increased sweating?": 10,
+   "Do you have a cough?": 7
+  },
+  "initial_evidences_count": {
+   "Do you have a fever (either felt or measured with a thermometer)?": {
+    "is_relevant": true,
+    "count": 64
+   },
+   "Do you have nasal congestion or a clear runny nose?": {
+    "is_relevant": true,
+    "count": 34
+   },
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 23
+   },
+   "Do you have a cough?": {
+    "is_relevant": true,
+    "count": 22
+   },
+   "Have you had significantly increased sweating?": {
+    "is_relevant": true,
+    "count": 22
+   },
+   "Do you have a sore throat?": {
+    "is_relevant": false,
+    "count": 16
+   },
+   "Do you have diffuse (widespread) muscle pain?": {
+    "is_relevant": true,
+    "count": 10
+   },
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": {
+    "is_relevant": true,
+    "count": 8
+   },
+   "Do you feel so tired that you are unable to do your usual activities or are you stuck in your bed all day long?": {
+    "is_relevant": true,
+    "count": 7
+   },
+   "Have you recently had a loss of appetite or do you get full more quickly then usually?": {
+    "is_relevant": true,
+    "count": 1
+   }
+  }
+ },
+ "Pneumonia": {
+  "top_missed_evidences": {
+   "Do you have a cough that produces colored or more abundant sputum than usual?": 91,
+   "Have you recently had a loss of appetite or do you get full more quickly then usually?": 63,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 59,
+   "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?": 53,
+   "Have you had chills or shivers?": 50,
+   "Do you have pain that is increased when you breathe in deeply?": 40,
+   "Do you have nasal congestion or a clear runny nose?": 22,
+   "Do you have diffuse (widespread) muscle pain?": 11,
+   "Are your symptoms more prominent at night?": 8,
+   "Do you have a cough?": 5
+  },
+  "initial_evidences_count": {
+   "Do you have nasal congestion or a clear runny nose?": {
+    "is_relevant": false,
+    "count": 57
+   },
+   "Do you have a fever (either felt or measured with a thermometer)?": {
+    "is_relevant": false,
+    "count": 26
+   },
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": {
+    "is_relevant": true,
+    "count": 17
+   },
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 9
+   },
+   "Do you have a cough?": {
+    "is_relevant": false,
+    "count": 8
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 5
+   },
+   "Have you recently had a loss of appetite or do you get full more quickly then usually?": {
+    "is_relevant": false,
+    "count": 3
+   },
+   "Are your symptoms more prominent at night?": {
+    "is_relevant": true,
+    "count": 2
+   },
+   "Do you have a cough that produces colored or more abundant sputum than usual?": {
+    "is_relevant": true,
+    "count": 2
+   },
+   "Have you had chills or shivers?": {
+    "is_relevant": true,
+    "count": 1
+   }
+  }
+ },
+ "Acute rhinosinusitis": {
+  "top_missed_evidences": {
+   "Do you have greenish or yellowish nasal discharge?": 134,
+   "Have you lost your sense of smell?": 54
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 88
+   },
+   "Do you have a fever (either felt or measured with a thermometer)?": {
+    "is_relevant": true,
+    "count": 46
+   }
+  }
+ },
+ "Chronic rhinosinusitis": {
+  "top_missed_evidences": {
+   "Have you lost your sense of smell?": 174,
+   "Do you have greenish or yellowish nasal discharge?": 122,
+   "Do you have nasal congestion or a clear runny nose?": 52
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 174
+   }
+  }
+ },
+ "Bronchiolitis": {
+  "top_missed_evidences": {
+   "Do you have nasal congestion or a clear runny nose?": 4,
+   "Do you ever temporarily stop breathing while you\u2019re asleep?": 2,
+   "Do you have a decrease in appetite?": 1,
+   "Have you noticed a wheezing sound when you exhale?": 1,
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": 1
+  },
+  "initial_evidences_count": {
+   "Do you have a cough?": {
+    "is_relevant": true,
+    "count": 3
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 1
+   },
+   "Do you have nasal congestion or a clear runny nose?": {
+    "is_relevant": true,
+    "count": 1
+   }
+  }
+ },
+ "Pulmonary neoplasm": {
+  "top_missed_evidences": {
+   "Have you had an involuntary weight loss over the last 3 months?": 37,
+   "Have you recently had a loss of appetite or do you get full more quickly then usually?": 3,
+   "Do you have a cough?": 2
+  },
+  "initial_evidences_count": {
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 19
+   },
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 19
+   }
+  }
+ },
+ "Possible NSTEMI / STEMI": {
+  "top_missed_evidences": {
+   "Have you recently had a loss of appetite or do you get full more quickly then usually?": 52,
+   "Have you had significantly increased sweating?": 52
+  },
+  "initial_evidences_count": {
+   "Do you constantly feel fatigued or do you have non-restful sleep?": {
+    "is_relevant": true,
+    "count": 73
+   }
+  }
+ },
+ "Sarcoidosis": {
+  "top_missed_evidences": {
+   "Do you have swollen or painful lymph nodes?": 849,
+   "Have you lost consciousness associated with violent and sustained muscle contractions or had an absence episode?": 701,
+   "Have you noticed a diffuse (widespread) redness in one or both eyes?": 623,
+   "Have you had any vaginal discharge?": 495
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 851
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 480
+   }
+  }
+ },
+ "Pancreatic neoplasm": {
+  "top_missed_evidences": {
+   "Do you have pale stools and dark urine?": 190,
+   "Have you had an involuntary weight loss over the last 3 months?": 133,
+   "Have you had diarrhea or an increase in stool frequency?": 127,
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": 2,
+   "Are you feeling nauseous or do you feel like vomiting?": 2,
+   "Do you have a cough?": 1
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 131
+   },
+   "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?": {
+    "is_relevant": true,
+    "count": 102
+   },
+   "Are you feeling nauseous or do you feel like vomiting?": {
+    "is_relevant": true,
+    "count": 18
+   },
+   "Do you have a cough?": {
+    "is_relevant": true,
+    "count": 7
+   },
+   "Do you constantly feel fatigued or do you have non-restful sleep?": {
+    "is_relevant": true,
+    "count": 7
+   }
+  }
+ },
+ "Acute pulmonary edema": {
+  "top_missed_evidences": {
+   "Do you have swelling in one or more areas of your body?": 163,
+   "Do you have bouts of choking or shortness of breath that wake you up at night?": 73,
+   "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?": 29,
+   "Are your symptoms worse when lying down and alleviated while sitting up?": 4
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 84
+   },
+   "Have you had significantly increased sweating?": {
+    "is_relevant": true,
+    "count": 51
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 14
+   },
+   "Do you have symptoms that are increased with physical exertion but alleviated with rest?": {
+    "is_relevant": true,
+    "count": 6
+   },
+   "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?": {
+    "is_relevant": true,
+    "count": 4
+   },
+   "Are your symptoms worse when lying down and alleviated while sitting up?": {
+    "is_relevant": true,
+    "count": 4
+   }
+  }
+ },
+ "Pericarditis": {
+  "top_missed_evidences": {
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?": 144
+  },
+  "initial_evidences_count": {
+   "Do you have pain somewhere, related to your reason for consulting?": {
+    "is_relevant": true,
+    "count": 76
+   },
+   "Do you have pain that is increased when you breathe in deeply?": {
+    "is_relevant": true,
+    "count": 38
+   },
+   "Are you experiencing shortness of breath or difficulty breathing in a significant way?": {
+    "is_relevant": true,
+    "count": 30
+   }
+  }
+ }
+}
