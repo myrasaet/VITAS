@@ -1,0 +1,7 @@
+{
+ "true": 80706,
+ "false": 51742,
+ "error_rate": 0.3906589755979705,
+ "mean_hit_rate": 0.6911363871608647,
+ "mean_hit_rate_misdiagnosed": 0.5702004619378319
+}
