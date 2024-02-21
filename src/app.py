@@ -53,8 +53,8 @@ feature_importance_df
 
 
 ################### Load Models ###################
-with open(f'{base_path}\\output\\questionnaire\\questionairre.pkl', 'rb') as f:
-    questionairre = pickle.load(f)
+with open(f'{base_path}\\output\\questionnaire\\questionnaire.pkl', 'rb') as f:
+    questionnaire = pickle.load(f)
 with open(f'{base_path}\\output\\semantic_search\\semantic_search.pkl', 'rb') as f:
     semantic_search = pickle.load(f)
 transformer_name = "BioBERT-mnli-snli-scinli-scitail-mednli-stsb"
@@ -65,7 +65,7 @@ transformer = SentenceTransformer(f"{base_path}\\input\\{transformer_name}")
 ################### Define Functions ###################
 def get_next_question(evidences):
     centroid = np.array([feature_importance_df.loc[e].values for e in evidences]).mean(axis=0)
-    _, indices = questionairre.kneighbors([centroid])
+    _, indices = questionnaire.kneighbors([centroid])
     ask_list = [evidences_list[i] for i in indices[0] if evidences_list[i] not in evidences]
     try:
         return ask_list
