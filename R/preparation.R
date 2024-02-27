@@ -18,6 +18,8 @@ box::use(
   tidyr[...],
   purrr[...],
   tidyselect[...],
+  furrr[...],
+  future[...],
   R/pull
 )
 
@@ -123,7 +125,7 @@ unnest_evidences <-
       arrow::read_feather(
         file = here("configs","evidence_classes.arrow")
       )
-    evidences <- pull$pull_evidences(pull_from_raw = TRUE)
+    evidences <- pull$pull_evidences(pull_from_raw = FALSE)
     
     prep1 <- data %>% 
       unnest_tokens(token = "regex", 
@@ -172,7 +174,7 @@ unnest_evidences <-
     prep_test <- prep1.5 %>% 
       pivot_wider(names_from = evidence_raw, 
                   values_from = evidence_value)
-    
+
     profile_cols <- str_subset(colnames(prep_test),
                                pattern = "E_",
                                negate = TRUE)
@@ -196,42 +198,11 @@ unnest_evidences <-
     prep2 <- prep_profile %>% 
       bind_cols(prep_numeric_col) %>% 
       bind_cols(prep_char_col)
-      
-    
-    prep2 <- prep1.5 %>% 
-      pivot_wider(names_from = evidence_raw, 
-                  values_from = evidence_value) %>% 
-      # for all numeric columns, convert NA to 0
-      # for non-numeric columns, convert NA to "NA"
-      mutate(across(
-        any_of(with(evidence_classes_df, 
-                    name[data_type %in% c("M","B") | class == "numeric"])),
-        .fns = function(x){
-          ifelse(is.na(x), 0, x)
-        }
-      )) %>% 
-      mutate(across(
-        any_of(with(evidence_classes_df,
-                    name[data_type == "C" & class == "character"])),
-        .fns = function(x){
-          ifelse(is.na(x), "NA", x)
-        }
-      ))
     
     # Re-add missing evidence columns
     emp <- cook_empty_tibble(data = prep2)
     
     out <- bind_cols(prep2, emp)
-    
-
-    # df_classes <- tibble(colnames = names(out)) %>% 
-    #   left_join(evidence_classes_df, 
-    #             by = join_by(colnames == name)) %>% 
-    #   mutate(class = ifelse(is.na(data_type),
-    #                         "character",
-    #                         class))
-    # 
-    # class(out)
       
     
     # suppose column classes
@@ -239,38 +210,10 @@ unnest_evidences <-
          .f = function(colname){
            class(out[[colname]]) <<- 
              evidence_classes_df$class[evidence_classes_df$name == colname]
-         }
+         }, .progress = TRUE
     )
     
     out
     
   }
-
-
-# TESTING #
-#
-# prepped <- unnest_evidences(train_sample)
-# map_chr(prepped, class)
-# # ert
-# 
-# 
-# setdiff(names(prepped),all_evidence_classes$name)
-# evidence_classes_df
-# 
-# 
-# # There are 676 possible values for all multiclass evidences
-# 
-# multiclass_evidences <- evidences %>% 
-#   filter(data_type == "M") %>% 
-#   unnest_longer(col = c(possible_values, value_meaning)) %>% 
-#   mutate(name = paste0(name,"_@_",possible_values)) %>% 
-#   select(name, data_type, class)
-# 
-# singleclass_evidences <- evidences %>% 
-#   filter(data_type %in% c("B","C")) %>% 
-#   select(name, data_type, class)
-# 
-# all_evidence_classes <- 
-#   bind_rows(multiclass_evidences,singleclass_evidences)
-
 

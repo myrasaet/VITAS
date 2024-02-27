@@ -39,7 +39,6 @@ pull_training <-
         read_csv(file  = here(input_path,
                               "release_train_patients"))
       
-      
       arrow::write_feather(x = release_train_patients_raw, 
                            sink = here(processed_path, 
                                        "train.arrow"))
