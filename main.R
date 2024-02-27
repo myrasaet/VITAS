@@ -1,5 +1,8 @@
 
 
+
+# Setup -------------------------------------------------------------------
+
 # renv::activate()
 # renv::snapshot()
 renv::restore()
@@ -13,16 +16,36 @@ box::use(
 box::reload(pull)
 box::reload(preparation)
 
+
+# Pull Datasets -----------------------------------------------------------
+
+
 pull$pull_conditions(pull_from_raw = TRUE)
 pull$pull_evidences(pull_from_raw = TRUE)
 train <- pull$pull_training(pull_from_raw = TRUE) # adds patient ID to 
-train <- arrow::open_dataset("data/processed/train.arrow", format = "arrow")
+
+
+# Preparation -------------------------------------------------------------
+
+train_arrow <- arrow::open_dataset("data/processed/train.arrow", 
+                                   format = "arrow")
 
 box::help(preparation$unnest_evidences)
 
-train_sample <- train %>% 
-  slice_head(n = 10000) %>% 
+
+train_sample <- train_arrow %>% 
+  slice_head(n = 100000) %>% 
   collect() %>% 
   preparation$add_patient_ID()
 
-(test <- unnest_evidences(train_sample)) %>% system.time()
+train <- train_arrow %>% 
+  collect() %>% 
+  preparation$add_patient_ID()
+
+(test <- preparation$unnest_evidences(train)) %>% system.time()
+
+test
+
+
+## TODO
+# - speed up code, use dtplyr where possible
