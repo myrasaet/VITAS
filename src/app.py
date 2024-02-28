@@ -41,18 +41,11 @@ for disease in disease_list:
     disease_filename = re.sub('[^a-zA-Z0-9 \n\.]', '', disease).replace(" ", "_")
     with open(f'{base_path}\\output\\diseases\\{disease_filename}\\{disease_filename}_model.pkl', 'rb') as f:
         model_dict[disease] = pickle.load(f)
-
-# vectorize feature importance
-feature_importance_df = pd.DataFrame()
-feature_importance_df["evidence"] = evidences_list
-for disease in feature_importance_dict:
-    feature_importance_df[disease] = [feature_importance_dict[disease]["top10_relevant_symptoms"].get(evidence, 0) for evidence in evidences_list]
-feature_importance_df.set_index('evidence', inplace=True)
-feature_importance_df
 ################### Load Data ###################
 
 
 ################### Load Models ###################
+feature_embeddings_df = pd.read_pickle(f'{base_path}\\output\\questionnaire\\questionnaire_embeddings.pkl')
 with open(f'{base_path}\\output\\questionnaire\\questionnaire.pkl', 'rb') as f:
     questionnaire = pickle.load(f)
 with open(f'{base_path}\\output\\semantic_search\\semantic_search.pkl', 'rb') as f:
@@ -64,7 +57,7 @@ transformer = SentenceTransformer(f"{base_path}\\input\\{transformer_name}")
 
 ################### Define Functions ###################
 def get_next_question(evidences):
-    centroid = np.array([feature_importance_df.loc[e].values for e in evidences]).mean(axis=0)
+    centroid = np.array([feature_embeddings_df.loc[e].values for e in evidences]).mean(axis=0)
     _, indices = questionnaire.kneighbors([centroid])
     ask_list = [evidences_list[i] for i in indices[0] if evidences_list[i] not in evidences]
     try:

@@ -1,7 +1,7 @@
 {
- "true": 109388,
- "false": 23060,
- "error_rate": 0.1741060642667311,
- "mean_hit_rate": 0.8911475938996174,
- "mean_hit_rate_misdiagnosed": 0.6274497640260867
+ "true": 112071,
+ "false": 20377,
+ "error_rate": 0.15384905774341628,
+ "mean_hit_rate": 0.9359206823492807,
+ "mean_hit_rate_misdiagnosed": 0.7056525954020679
 }
