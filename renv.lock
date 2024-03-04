@@ -173,6 +173,17 @@
       ],
       "Hash": "e8a1e41acf02548751f45c718d55aa6a"
     },
+    "data.table": {
+      "Package": "data.table",
+      "Version": "1.15.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "methods"
+      ],
+      "Hash": "cfbbb4aed6e78cd45f17123a9ec9981a"
+    },
     "digest": {
       "Package": "digest",
       "Version": "0.6.34",
@@ -206,6 +217,25 @@
         "vctrs"
       ],
       "Hash": "fedd9d00c2944ff00a0e2696ccf048ec"
+    },
+    "dtplyr": {
+      "Package": "dtplyr",
+      "Version": "1.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "cli",
+        "data.table",
+        "dplyr",
+        "glue",
+        "lifecycle",
+        "rlang",
+        "tibble",
+        "tidyselect",
+        "vctrs"
+      ],
+      "Hash": "54ed3ea01b11e81a86544faaecfef8e2"
     },
     "fansi": {
       "Package": "fansi",
