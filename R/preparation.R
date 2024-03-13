@@ -43,19 +43,19 @@ get_top10_multiclass_evidences <-
     out <- map(to_get_top10,
          .f = function(x){
            
-           e_55_sums <- train |> 
+           sums <- train |> 
              select(contains(x)) |> 
              summarize(across(everything(),
                               .fns = ~sum(., na.rm = TRUE))) |> 
              collect()
            
-           e55_top10 <- e_55_sums |> 
+           top10 <- sums |> 
              pivot_longer(everything()) |> 
              arrange(desc(value)) |> 
              slice(1:10) |> # get top 10
              pull(name)
            
-           e55_top10
+           top10
           
          }, .progress = TRUE)
     
@@ -99,6 +99,9 @@ cook_empty_tibble <-
       arrow::read_feather(
         file = here("configs","evidence_classes.arrow")
       )
+    multiclass_top10 <- 
+      readr::read_rds(here("data","processed",
+                           "multiclass_top10.rds"))
     
     # In the following, we reduce the possible values
     # for the multiclass evidences. Convert infrequent
@@ -281,7 +284,9 @@ unnest_evidences <-
     
     prep1.6 <- prep1.5 |> 
       filter(! evidence_name %in% names(multiclass_top10)) |> 
-      bind_rows(multiclass_rows) |> 
+      as_tibble() |> 
+      bind_rows(as_tibble(multiclass_rows)) |> 
+      lazy_dt() |> 
       select(-evidence_name, -data_type) |> 
       arrange(patientId)
     
@@ -305,6 +310,7 @@ unnest_evidences <-
     # prep_numeric_col[is.na(prep_numeric_col)] <- 0
     prep_numeric_col <-
       prep_numeric_col %>% 
+      as_tibble() |> 
       mutate(across(everything(), ~replace(., is.na(.), 0)))
     
     prep_char_col <-
@@ -312,6 +318,7 @@ unnest_evidences <-
       select(any_of(
         with(evidence_classes_df, 
              name[data_type == "C" & class == "character"]))) %>% 
+      as_tibble() |> 
       mutate(across(everything(), ~replace(., is.na(.), "NA")))
     # prep_char_col[is.na(prep_char_col)] <- "NA"
     
@@ -334,7 +341,8 @@ unnest_evidences <-
       name = names(out),
       class_created = out_col_classes
     ) %>% 
-      left_join(evidence_classes_df) %>% 
+      left_join(evidence_classes_df,
+                by = join_by(name)) %>% 
       mutate(class = if_else(data_type == "M",
                              "numeric",
                              class)) %>% 
@@ -441,7 +449,8 @@ unnest_differential <-
           differential_score/max(differential_score, 
                                  na.rm = TRUE),
         .after = differential_rank) %>% 
-      ungroup()
+      ungroup() |> 
+      select(-DIFFERENTIAL_DIAGNOSIS)
     
     return(out)
     
