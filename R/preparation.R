@@ -20,12 +20,54 @@ box::use(
   tidyselect[...],
   furrr[...],
   future[...],
+  dtplyr[...],
   R/pull
 )
 
 # box::reload(pull)
 
 # Functions ---------------------------------------------------------------
+
+
+# 1. Unnest Evidences --------------------------------------------------------
+
+#' Get top 10 most frequent values from multiclass evidences
+#' 
+#' #' @description
+#' Get top 10 most frequent values from multiclass evidences
+#' 
+#' @export
+get_top10_multiclass_evidences <-
+  function(train){
+    to_get_top10 <- c("E_55","E_57","E_133","E_152")
+    out <- map(to_get_top10,
+         .f = function(x){
+           
+           sums <- train |> 
+             select(contains(x)) |> 
+             summarize(across(everything(),
+                              .fns = ~sum(., na.rm = TRUE))) |> 
+             collect()
+           
+           top10 <- sums |> 
+             pivot_longer(everything()) |> 
+             arrange(desc(value)) |> 
+             slice(1:10) |> # get top 10
+             pull(name)
+           
+           top10
+          
+         }, .progress = TRUE)
+    
+    multiclass_top10 <- out
+    names(multiclass_top10) <- c("E_55",
+                                 "E_57","E_133","E_152")
+    readr::write_rds(multiclass_top10,
+                     here("data","processed",
+                          "multiclass_top10.rds"))
+    message("saved in data/processed/multiclass_top10.rds")
+  }
+
 
 #' Helper function for unnest_evidences function
 #' 
@@ -57,6 +99,32 @@ cook_empty_tibble <-
       arrow::read_feather(
         file = here("configs","evidence_classes.arrow")
       )
+    multiclass_top10 <- 
+      readr::read_rds(here("data","processed",
+                           "multiclass_top10.rds"))
+    
+    # In the following, we reduce the possible values
+    # for the multiclass evidences. Convert infrequent
+    # values to "Others"
+    evidence_classes_df <- evidence_classes_df |> 
+      mutate(
+        name = case_when(
+          str_detect(name, "E_55") ~ ifelse(name %in% 
+                                              multiclass_top10$E_55,
+                                            name, "E_55_@_Others"),
+          str_detect(name, "E_57") ~ ifelse(name %in% 
+                                              multiclass_top10$E_57,
+                                            name, "E_57_@_Others"),
+          str_detect(name, "E_133") ~ ifelse(name %in% 
+                                               multiclass_top10$E_133,
+                                             name, "E_133_@_Others"),
+          str_detect(name, "E_152") ~ ifelse(name %in% 
+                                               multiclass_top10$E_152,
+                                             name, "E_152_@_Others"),
+          .default = name
+        )
+      ) |> 
+      distinct()
     
     missing_cols <- setdiff(evidence_classes_df$name,
                             colnames(data))
@@ -120,6 +188,7 @@ unnest_evidences <-
   function(data){
     
     # data <- train_sample
+    # data <- train
     
     evidence_classes_df <-
       arrow::read_feather(
@@ -127,12 +196,22 @@ unnest_evidences <-
       )
     evidences <- pull$pull_evidences(pull_from_raw = FALSE)
     
+    multiclass_top10 <- 
+      readr::read_rds(here("data","processed",
+                           "multiclass_top10.rds"))
+    
+    
     prep1 <- data %>% 
       unnest_tokens(token = "regex", 
                     output = "evidence_raw",
                     input = EVIDENCES,
                     pattern = ', ',
-                    to_lower = FALSE) %>% 
+                    to_lower = FALSE)
+    
+    prep1_lazy <- lazy_dt(prep1)
+    # prep1_lazy <- prep1 # FOR TESTING
+    
+    prep1.1 <- prep1_lazy %>% 
       mutate(
         # Clean the evidences. Remove "[", "'", and "]"
         evidence_raw = 
@@ -144,7 +223,7 @@ unnest_evidences <-
         # re-convert all NA to 1. Since binary variables
         # from previous step were converted to NA
         evidence_value = ifelse(is.na(evidence_value),
-                                1,
+                                as.character(1),
                                 evidence_value)) 
     
     # Get data type of all evidences. 
@@ -154,59 +233,123 @@ unnest_evidences <-
     # For multiclass variables, keep the value
     # within the evidence name so that each value 
     # will be given its own column
-    prep1.5 <- prep1 %>% 
+    
+    
+    to_join <- evidences %>% 
+      select(name, data_type) %>% 
+      rename(evidence_name = name)
+    
+    prep1.5 <- prep1.1 %>% 
       mutate(evidence_name = str_extract(evidence_raw,
                                          pattern = "E_\\d+")) %>% 
-      left_join(evidences %>% 
-                  select(name, data_type),
-                by = join_by(evidence_name == name)) %>% 
+      as_tibble() %>% 
+      left_join(y = to_join,
+                by = "evidence_name") %>% 
+      lazy_dt() %>%
       mutate(
         evidence_raw = ifelse(data_type == "C",
                               evidence_name,
                               evidence_raw),
         evidence_value = ifelse(data_type == "M",
-                                1,
+                                as.character(1),
                                 evidence_value)
-      ) %>% 
-      select(-evidence_name, -data_type)
-
+      )
     
-    prep_test <- prep1.5 %>% 
+    
+    multiclass_top10
+    # TEST
+    multiclass_rows <- prep1.5 |> 
+      filter(evidence_name %in% names(multiclass_top10)) |> 
+      mutate(
+        evidence_raw = case_when(
+          evidence_name == "E_55" ~ ifelse(evidence_raw %in% 
+                                             multiclass_top10$E_55,
+                                           evidence_raw, "E_55_@_Others"),
+          evidence_name == "E_57" ~ ifelse(evidence_raw %in% 
+                                             multiclass_top10$E_57,
+                                           evidence_raw, "E_57_@_Others"),
+          evidence_name == "E_133" ~ ifelse(evidence_raw %in% 
+                                              multiclass_top10$E_133,
+                                            evidence_raw, "E_133_@_Others"),
+          evidence_name == "E_152" ~ ifelse(evidence_raw %in% 
+                                              multiclass_top10$E_152,
+                                            evidence_raw, "E_152_@_Others")
+        )
+      ) |> 
+      group_by(across(-evidence_value)) |> 
+      summarize(evidence_value = sum(as.numeric(evidence_value),
+                                     na.rm = TRUE)) |> 
+      ungroup() |> 
+      mutate(evidence_value = as.character(evidence_value))
+    
+    prep1.6 <- prep1.5 |> 
+      filter(! evidence_name %in% names(multiclass_top10)) |> 
+      as_tibble() |> 
+      bind_rows(as_tibble(multiclass_rows)) |> 
+      lazy_dt() |> 
+      select(-evidence_name, -data_type) |> 
+      arrange(patientId)
+    
+    prep_test <- prep1.6 %>% 
       pivot_wider(names_from = evidence_raw, 
                   values_from = evidence_value)
-
-    profile_cols <- str_subset(colnames(prep_test),
+    
+    prep_test_tibble <- as_tibble(prep_test)
+    
+    profile_cols <- str_subset(colnames(prep_test_tibble),
                                pattern = "E_",
                                negate = TRUE)
-    prep_profile <- prep_test[profile_cols]
+    prep_profile <- prep_test_tibble[profile_cols]
     
+    # Convert all numeric NA to 0
     prep_numeric_col <- prep_test %>% 
       select(any_of(
         with(evidence_classes_df, 
              name[data_type %in% c("M","B") | class == "numeric"]))) %>% 
       mutate(across(everything(), as.numeric))
-    prep_numeric_col[is.na(prep_numeric_col)] <- 0
+    # prep_numeric_col[is.na(prep_numeric_col)] <- 0
+    prep_numeric_col <-
+      prep_numeric_col %>% 
+      as_tibble() |> 
+      mutate(across(everything(), ~replace(., is.na(.), 0)))
     
     prep_char_col <-
       prep_test %>% 
       select(any_of(
         with(evidence_classes_df, 
-             name[data_type == "C" & class == "character"])))
-    prep_char_col[is.na(prep_char_col)] <- "NA"
+             name[data_type == "C" & class == "character"]))) %>% 
+      as_tibble() |> 
+      mutate(across(everything(), ~replace(., is.na(.), "NA")))
+    # prep_char_col[is.na(prep_char_col)] <- "NA"
     
     
     prep2 <- prep_profile %>% 
-      bind_cols(prep_numeric_col) %>% 
-      bind_cols(prep_char_col)
+      bind_cols(as_tibble(prep_numeric_col)) %>% 
+      bind_cols(as_tibble(prep_char_col))
     
     # Re-add missing evidence columns
     emp <- cook_empty_tibble(data = prep2)
     
     out <- bind_cols(prep2, emp)
-      
+    
+    out_col_classes <- map_chr(names(out), 
+                               .f = function(x){
+                                 class(out[[x]])
+                               })
+    
+    cols_to_reclass_df <- tibble(
+      name = names(out),
+      class_created = out_col_classes
+    ) %>% 
+      left_join(evidence_classes_df,
+                by = join_by(name)) %>% 
+      mutate(class = if_else(data_type == "M",
+                             "numeric",
+                             class)) %>% 
+      filter(class_created != class)
     
     # suppose column classes
-    walk(evidence_classes_df$name,
+    walk(cols_to_reclass_df$name,
          .f = function(colname){
            class(out[[colname]]) <<- 
              evidence_classes_df$class[evidence_classes_df$name == colname]
@@ -217,3 +360,98 @@ unnest_evidences <-
     
   }
 
+#' @export
+divide_data_to_batches <- function(data,rows_per_batch){
+  # number of rows per batch
+  batch_rows <- rows_per_batch
+  # list of dataframes
+  batches <- split(data, 
+                   (seq(nrow(data))-1) %/% batch_rows + 1) 
+  batches
+}
+
+#' @export
+unnest_evidences_batch <-
+  function(data, chunk_size = 10000, result_path){
+    
+    # data <- train_sample # TEST
+    n <- nrow(data)
+    d_size <- nrow(data)
+    
+    if (chunk_size > d_size){
+      stop("Chunk size is more than number of rows of data")
+    }
+    
+
+    r  <- rep(1:ceiling(n/chunk_size),each=chunk_size)[1:n]
+    d <- split(data,r)
+    
+    d
+    
+    out <- map(d,
+        unnest_evidences,
+        .progress = TRUE)
+    
+    out <- bind_rows(out)
+    
+    write_feather(out, 
+                  sink = result_path)
+    message(paste0("saved unnested evidences to '", result_path,"'"))
+    
+    out
+    
+  }
+
+
+# 2. Unnest Differential Diagnosis ----------------------------------------
+
+separate_diff_diagnosis_optimized <- function(data, count_diagnosis_keep = 5){
+  separated_diag_df <- data %>%
+    mutate(diagnosis_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\[\\')([:graph:]|\\s)+?(?=\\'\\,)")) %>%
+    mutate(score_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\,\\s)[\\d\\.e\\-]+?(?=\\])")) %>%
+    rowwise() %>%
+    mutate(diagnosis = list(unlist(diagnosis_list))) %>%
+    mutate(differential_score = list(unlist(score_list))) %>%
+    unnest_longer(col = c(diagnosis, differential_score)) %>%
+    select(-diagnosis_list, -score_list) %>%
+    group_by(patientId) %>%
+    mutate(
+      differential_score = as.numeric(differential_score),
+      differential_rank = rank(-differential_score, ties.method = "min")
+    ) %>%
+    filter(differential_rank <= count_diagnosis_keep) %>%
+    select(patientId, diagnosis, differential_score, differential_rank)
+  
+  new_df <- data %>%
+    right_join(separated_diag_df, by = "patientId") %>%
+    relocate(diagnosis, differential_score, differential_rank, .after = DIFFERENTIAL_DIAGNOSIS) %>%
+    arrange(patientId)
+  
+  return(new_df)
+}
+
+#' @export
+unnest_differential <-
+  function(data, count_diagnosis_keep = 5){
+    
+    test_optimized <- 
+      separate_diff_diagnosis_optimized(
+        data = data,
+        count_diagnosis_keep = count_diagnosis_keep)
+    
+    # Computing weights
+    
+    # Proportion
+    out <- test_optimized %>% 
+      group_by(patientId) %>% 
+      mutate(
+        differential_case_weight = 
+          differential_score/max(differential_score, 
+                                 na.rm = TRUE),
+        .after = differential_rank) %>% 
+      ungroup() |> 
+      select(-DIFFERENTIAL_DIAGNOSIS)
+    
+    return(out)
+    
+  }
