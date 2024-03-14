@@ -6,7 +6,7 @@ This is VITAS - Virtual Intelligent Tool for Assessment and Symptom Check. This 
 This repo uses the DDXPlus Dataset from https://figshare.com/articles/dataset/DDXPlus_Dataset_English_/22687585
 
 ## Set up
-1. Install Python >= 3.7
+1. Install Python >= 3.10
 2. Install venv
     ```bash
     pip install virtualenv
@@ -17,7 +17,7 @@ This repo uses the DDXPlus Dataset from https://figshare.com/articles/dataset/DD
     ```
 4. Create virtual env
     ```bash
-    virtualenv vitas-env
+    py -3.10 -m venv "vitas-env"
     ```
 5. Activate vitas-env
     ```bash
