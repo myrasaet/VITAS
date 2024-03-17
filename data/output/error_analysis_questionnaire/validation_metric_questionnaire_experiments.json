@@ -1,0 +1,638 @@
+{
+ "Random_forest": {
+  "n_questions_1": {
+   "false": 92237,
+   "true": 40211,
+   "error_rate": 0.6964016066682773,
+   "mean_hit_rate": 0.2553061765269575,
+   "mean_hit_rate_misdiagnosed": 0.24093432361697814
+  },
+  "n_questions_2": {
+   "false": 89023,
+   "true": 43425,
+   "error_rate": 0.6721354795844406,
+   "mean_hit_rate": 0.33962182289922227,
+   "mean_hit_rate_misdiagnosed": 0.3172643683121313
+  },
+  "n_questions_3": {
+   "false": 84709,
+   "true": 47739,
+   "error_rate": 0.6395642063300314,
+   "mean_hit_rate": 0.41629663563044966,
+   "mean_hit_rate_misdiagnosed": 0.3745234224864489
+  },
+  "n_questions_4": {
+   "false": 79544,
+   "true": 52904,
+   "error_rate": 0.6005677699927519,
+   "mean_hit_rate": 0.4817639495254483,
+   "mean_hit_rate_misdiagnosed": 0.42428411888239154
+  },
+  "n_questions_5": {
+   "false": 74795,
+   "true": 57653,
+   "error_rate": 0.5647121889345252,
+   "mean_hit_rate": 0.5369958766050064,
+   "mean_hit_rate_misdiagnosed": 0.4601088525679073
+  },
+  "n_questions_6": {
+   "false": 68390,
+   "true": 64058,
+   "error_rate": 0.5163535878231457,
+   "mean_hit_rate": 0.6154144049916352,
+   "mean_hit_rate_misdiagnosed": 0.5192702509590944
+  },
+  "n_questions_7": {
+   "true": 71149,
+   "false": 61299,
+   "error_rate": 0.46281559555448176,
+   "mean_hit_rate": 0.667380395126001,
+   "mean_hit_rate_misdiagnosed": 0.5417540427438632
+  },
+  "n_questions_8": {
+   "true": 75602,
+   "false": 56846,
+   "error_rate": 0.4291948538294274,
+   "mean_hit_rate": 0.7115013010607885,
+   "mean_hit_rate_misdiagnosed": 0.5733803525886523
+  },
+  "n_questions_9": {
+   "true": 81372,
+   "false": 51076,
+   "error_rate": 0.3856305870983329,
+   "mean_hit_rate": 0.758784866646065,
+   "mean_hit_rate_misdiagnosed": 0.6127139763152764
+  },
+  "n_questions_10": {
+   "true": 85417,
+   "false": 47031,
+   "error_rate": 0.3550902995892728,
+   "mean_hit_rate": 0.7923558109538646,
+   "mean_hit_rate_misdiagnosed": 0.6420375317948195
+  },
+  "n_questions_11": {
+   "true": 89324,
+   "false": 43124,
+   "error_rate": 0.32559193041797535,
+   "mean_hit_rate": 0.8187262581256829,
+   "mean_hit_rate_misdiagnosed": 0.655434157742617
+  },
+  "n_questions_12": {
+   "true": 93970,
+   "false": 38478,
+   "error_rate": 0.2905140130466296,
+   "mean_hit_rate": 0.8452491412568197,
+   "mean_hit_rate_misdiagnosed": 0.6748630079832325
+  },
+  "n_questions_13": {
+   "true": 98023,
+   "false": 34425,
+   "error_rate": 0.25991332447451077,
+   "mean_hit_rate": 0.8623082069302471,
+   "mean_hit_rate_misdiagnosed": 0.689108162071125
+  },
+  "n_questions_14": {
+   "true": 100330,
+   "false": 32118,
+   "error_rate": 0.2424951679149553,
+   "mean_hit_rate": 0.8773404059087874,
+   "mean_hit_rate_misdiagnosed": 0.7053174488607891
+  },
+  "n_questions_15": {
+   "true": 102417,
+   "false": 30031,
+   "error_rate": 0.22673804058951438,
+   "mean_hit_rate": 0.8924127568191653,
+   "mean_hit_rate_misdiagnosed": 0.7247752574864559
+  },
+  "n_questions_16": {
+   "true": 103771,
+   "false": 28677,
+   "error_rate": 0.21651516066682774,
+   "mean_hit_rate": 0.9016400767773002,
+   "mean_hit_rate_misdiagnosed": 0.7316023115296052
+  },
+  "n_questions_17": {
+   "true": 104714,
+   "false": 27734,
+   "error_rate": 0.20939538535878233,
+   "mean_hit_rate": 0.9113327145509587,
+   "mean_hit_rate_misdiagnosed": 0.7430393026682777
+  },
+  "n_questions_18": {
+   "true": 105966,
+   "false": 26482,
+   "error_rate": 0.19994261899009422,
+   "mean_hit_rate": 0.9217573879286398,
+   "mean_hit_rate_misdiagnosed": 0.7527301263631601
+  },
+  "n_questions_19": {
+   "true": 107198,
+   "false": 25250,
+   "error_rate": 0.19064085527905292,
+   "mean_hit_rate": 0.9308992991560867,
+   "mean_hit_rate_misdiagnosed": 0.7653084708470846
+  },
+  "n_questions_20": {
+   "true": 108106,
+   "false": 24342,
+   "error_rate": 0.18378533462188934,
+   "mean_hit_rate": 0.9359513502699885,
+   "mean_hit_rate_misdiagnosed": 0.7790347175761275
+  },
+  "n_questions_21": {
+   "true": 109378,
+   "false": 23070,
+   "error_rate": 0.17418156559555448,
+   "mean_hit_rate": 0.9412106514420253,
+   "mean_hit_rate_misdiagnosed": 0.7931352474525426
+  },
+  "n_questions_22": {
+   "true": 110140,
+   "false": 22308,
+   "error_rate": 0.16842836433921238,
+   "mean_hit_rate": 0.9462649478593472,
+   "mean_hit_rate_misdiagnosed": 0.8036673440519595
+  },
+  "n_questions_23": {
+   "true": 111220,
+   "false": 21228,
+   "error_rate": 0.16027422082628653,
+   "mean_hit_rate": 0.9514760202424419,
+   "mean_hit_rate_misdiagnosed": 0.8177185306318998
+  },
+  "n_questions_24": {
+   "true": 112011,
+   "false": 20437,
+   "error_rate": 0.1543020657163566,
+   "mean_hit_rate": 0.9562542448441066,
+   "mean_hit_rate_misdiagnosed": 0.8246056599802257
+  },
+  "n_questions_25": {
+   "true": 112528,
+   "false": 19920,
+   "error_rate": 0.1503986470161875,
+   "mean_hit_rate": 0.9599101826713795,
+   "mean_hit_rate_misdiagnosed": 0.8315742334417033
+  },
+  "n_questions_26": {
+   "true": 113524,
+   "false": 18924,
+   "error_rate": 0.1428787146653781,
+   "mean_hit_rate": 0.9639470398925053,
+   "mean_hit_rate_misdiagnosed": 0.843904754355769
+  },
+  "n_questions_27": {
+   "true": 115154,
+   "false": 17294,
+   "error_rate": 0.130571998067166,
+   "mean_hit_rate": 0.970379061285115,
+   "mean_hit_rate_misdiagnosed": 0.8775614443765247
+  },
+  "n_questions_28": {
+   "true": 116433,
+   "false": 16015,
+   "error_rate": 0.12091537811065475,
+   "mean_hit_rate": 0.975840156289276,
+   "mean_hit_rate_misdiagnosed": 0.9004803532402659
+  },
+  "n_questions_29": {
+   "true": 117051,
+   "false": 15397,
+   "error_rate": 0.11624939598936941,
+   "mean_hit_rate": 0.9803158421049971,
+   "mean_hit_rate_misdiagnosed": 0.9134631978400244
+  },
+  "n_questions_30": {
+   "true": 117269,
+   "false": 15179,
+   "error_rate": 0.11460346702101958,
+   "mean_hit_rate": 0.9840657983621638,
+   "mean_hit_rate_misdiagnosed": 0.9186967269943752
+  }
+ },
+ "Logistic_regression": {
+  "n_questions_1": {
+   "false": 104619,
+   "true": 27829,
+   "error_rate": 0.7898873520173955,
+   "mean_hit_rate": 0.2553061765269575,
+   "mean_hit_rate_misdiagnosed": 0.2334543735226212
+  },
+  "n_questions_2": {
+   "false": 95033,
+   "true": 37415,
+   "error_rate": 0.7175117782072965,
+   "mean_hit_rate": 0.33962182289922227,
+   "mean_hit_rate_misdiagnosed": 0.30260818371080067
+  },
+  "n_questions_3": {
+   "false": 88857,
+   "true": 43591,
+   "error_rate": 0.6708821575259725,
+   "mean_hit_rate": 0.41629663563044966,
+   "mean_hit_rate_misdiagnosed": 0.362622892255054
+  },
+  "n_questions_4": {
+   "false": 81700,
+   "true": 50748,
+   "error_rate": 0.6168458564870741,
+   "mean_hit_rate": 0.4817639495254483,
+   "mean_hit_rate_misdiagnosed": 0.4090184403859434
+  },
+  "n_questions_5": {
+   "false": 74783,
+   "true": 57665,
+   "error_rate": 0.5646215873399372,
+   "mean_hit_rate": 0.5369958766050064,
+   "mean_hit_rate_misdiagnosed": 0.4405332313423056
+  },
+  "n_questions_6": {
+   "true": 66331,
+   "false": 66117,
+   "error_rate": 0.4991921357815898,
+   "mean_hit_rate": 0.6154144049916352,
+   "mean_hit_rate_misdiagnosed": 0.4891034416761537
+  },
+  "n_questions_7": {
+   "true": 72227,
+   "false": 60221,
+   "error_rate": 0.4546765523073206,
+   "mean_hit_rate": 0.667380395126001,
+   "mean_hit_rate_misdiagnosed": 0.5120579959166167
+  },
+  "n_questions_8": {
+   "true": 76995,
+   "false": 55453,
+   "error_rate": 0.41867751872432957,
+   "mean_hit_rate": 0.7115013010607885,
+   "mean_hit_rate_misdiagnosed": 0.5402662037898184
+  },
+  "n_questions_9": {
+   "true": 83760,
+   "false": 48688,
+   "error_rate": 0.36760086977530804,
+   "mean_hit_rate": 0.758784866646065,
+   "mean_hit_rate_misdiagnosed": 0.5716951390341137
+  },
+  "n_questions_10": {
+   "true": 88541,
+   "false": 43907,
+   "error_rate": 0.33150368446484657,
+   "mean_hit_rate": 0.7923558109538646,
+   "mean_hit_rate_misdiagnosed": 0.5995009747782654
+  },
+  "n_questions_11": {
+   "true": 92896,
+   "false": 39552,
+   "error_rate": 0.29862285576226144,
+   "mean_hit_rate": 0.8187262581256829,
+   "mean_hit_rate_misdiagnosed": 0.6075615276881964
+  },
+  "n_questions_12": {
+   "true": 96986,
+   "false": 35462,
+   "error_rate": 0.267742812273496,
+   "mean_hit_rate": 0.8452491412568197,
+   "mean_hit_rate_misdiagnosed": 0.6237281061733997
+  },
+  "n_questions_13": {
+   "true": 101021,
+   "false": 31427,
+   "error_rate": 0.23727802609325924,
+   "mean_hit_rate": 0.8623082069302471,
+   "mean_hit_rate_misdiagnosed": 0.6349301336119995
+  },
+  "n_questions_14": {
+   "true": 104035,
+   "false": 28413,
+   "error_rate": 0.2145219255858903,
+   "mean_hit_rate": 0.8773404059087874,
+   "mean_hit_rate_misdiagnosed": 0.6452385231157273
+  },
+  "n_questions_15": {
+   "true": 106338,
+   "false": 26110,
+   "error_rate": 0.19713396955786422,
+   "mean_hit_rate": 0.8924127568191653,
+   "mean_hit_rate_misdiagnosed": 0.663736235890583
+  },
+  "n_questions_16": {
+   "true": 107549,
+   "false": 24899,
+   "error_rate": 0.187990758637352,
+   "mean_hit_rate": 0.9016400767773002,
+   "mean_hit_rate_misdiagnosed": 0.6681725722590817
+  },
+  "n_questions_17": {
+   "true": 108753,
+   "false": 23695,
+   "error_rate": 0.17890039864701618,
+   "mean_hit_rate": 0.9113327145509587,
+   "mean_hit_rate_misdiagnosed": 0.6771516281191318
+  },
+  "n_questions_18": {
+   "true": 109734,
+   "false": 22714,
+   "error_rate": 0.1714937182894419,
+   "mean_hit_rate": 0.9217573879286398,
+   "mean_hit_rate_misdiagnosed": 0.6840316173216587
+  },
+  "n_questions_19": {
+   "true": 111140,
+   "false": 21308,
+   "error_rate": 0.16087823145687363,
+   "mean_hit_rate": 0.9308992991560867,
+   "mean_hit_rate_misdiagnosed": 0.6939854544533539
+  },
+  "n_questions_20": {
+   "true": 112070,
+   "false": 20378,
+   "error_rate": 0.15385660787629862,
+   "mean_hit_rate": 0.9359513502699885,
+   "mean_hit_rate_misdiagnosed": 0.7056642940488264
+  },
+  "n_questions_21": {
+   "true": 113517,
+   "false": 18931,
+   "error_rate": 0.14293156559555448,
+   "mean_hit_rate": 0.9412106514420253,
+   "mean_hit_rate_misdiagnosed": 0.7200225254118341
+  },
+  "n_questions_22": {
+   "true": 114448,
+   "false": 18000,
+   "error_rate": 0.13590239188209713,
+   "mean_hit_rate": 0.9462649478593472,
+   "mean_hit_rate_misdiagnosed": 0.7313747574955909
+  },
+  "n_questions_23": {
+   "true": 115627,
+   "false": 16821,
+   "error_rate": 0.12700078521381977,
+   "mean_hit_rate": 0.9514760202424419,
+   "mean_hit_rate_misdiagnosed": 0.7454781343803993
+  },
+  "n_questions_24": {
+   "true": 116142,
+   "false": 16306,
+   "error_rate": 0.12311246677941531,
+   "mean_hit_rate": 0.9562542448441066,
+   "mean_hit_rate_misdiagnosed": 0.7511621245660862
+  },
+  "n_questions_25": {
+   "true": 116752,
+   "false": 15696,
+   "error_rate": 0.1185068857211887,
+   "mean_hit_rate": 0.9599101826713795,
+   "mean_hit_rate_misdiagnosed": 0.7576289025209132
+  },
+  "n_questions_26": {
+   "true": 117895,
+   "false": 14553,
+   "error_rate": 0.10987708383667552,
+   "mean_hit_rate": 0.9639470398925053,
+   "mean_hit_rate_misdiagnosed": 0.7686335059917826
+  },
+  "n_questions_27": {
+   "true": 119868,
+   "false": 12580,
+   "error_rate": 0.09498067165982121,
+   "mean_hit_rate": 0.970379061285115,
+   "mean_hit_rate_misdiagnosed": 0.8092352751911575
+  },
+  "n_questions_28": {
+   "true": 121317,
+   "false": 11131,
+   "error_rate": 0.08404052911331239,
+   "mean_hit_rate": 0.975840156289276,
+   "mean_hit_rate_misdiagnosed": 0.8367710726371225
+  },
+  "n_questions_29": {
+   "true": 121879,
+   "false": 10569,
+   "error_rate": 0.07979735443343802,
+   "mean_hit_rate": 0.9803158421049971,
+   "mean_hit_rate_misdiagnosed": 0.8554413401276871
+  },
+  "n_questions_30": {
+   "true": 122498,
+   "false": 9950,
+   "error_rate": 0.07512382217927036,
+   "mean_hit_rate": 0.9840657983621638,
+   "mean_hit_rate_misdiagnosed": 0.87413496051687
+  }
+ },
+ "Decision_Tree": {
+  "n_questions_1": {
+   "false": 120319,
+   "true": 12129,
+   "error_rate": 0.9084244382701135,
+   "mean_hit_rate": 0.2553061765269575,
+   "mean_hit_rate_misdiagnosed": 0.24632047891362713
+  },
+  "n_questions_2": {
+   "false": 116560,
+   "true": 15888,
+   "error_rate": 0.8800434887654023,
+   "mean_hit_rate": 0.33962182289922227,
+   "mean_hit_rate_misdiagnosed": 0.32760572060632115
+  },
+  "n_questions_3": {
+   "false": 110778,
+   "true": 21670,
+   "error_rate": 0.8363886204397197,
+   "mean_hit_rate": 0.41629663563044966,
+   "mean_hit_rate_misdiagnosed": 0.39100268982533515
+  },
+  "n_questions_4": {
+   "false": 104787,
+   "true": 27661,
+   "error_rate": 0.7911557743416284,
+   "mean_hit_rate": 0.4817639495254483,
+   "mean_hit_rate_misdiagnosed": 0.44272185755909876
+  },
+  "n_questions_5": {
+   "false": 100338,
+   "true": 32110,
+   "error_rate": 0.7575652331481034,
+   "mean_hit_rate": 0.5369958766050064,
+   "mean_hit_rate_misdiagnosed": 0.4837195516693813
+  },
+  "n_questions_6": {
+   "false": 91203,
+   "true": 41245,
+   "error_rate": 0.6885947692679392,
+   "mean_hit_rate": 0.6154144049916352,
+   "mean_hit_rate_misdiagnosed": 0.5438206117534099
+  },
+  "n_questions_7": {
+   "false": 82891,
+   "true": 49557,
+   "error_rate": 0.6258380647499396,
+   "mean_hit_rate": 0.667380395126001,
+   "mean_hit_rate_misdiagnosed": 0.5739404209759857
+  },
+  "n_questions_8": {
+   "false": 78609,
+   "true": 53839,
+   "error_rate": 0.5935083957477651,
+   "mean_hit_rate": 0.7115013010607885,
+   "mean_hit_rate_misdiagnosed": 0.6082959306139859
+  },
+  "n_questions_9": {
+   "false": 71363,
+   "true": 61085,
+   "error_rate": 0.5388001328823387,
+   "mean_hit_rate": 0.758784866646065,
+   "mean_hit_rate_misdiagnosed": 0.6481196782935779
+  },
+  "n_questions_10": {
+   "true": 66911,
+   "false": 65537,
+   "error_rate": 0.4948130587098333,
+   "mean_hit_rate": 0.7923558109538646,
+   "mean_hit_rate_misdiagnosed": 0.6779317227472468
+  },
+  "n_questions_11": {
+   "true": 72470,
+   "false": 59978,
+   "error_rate": 0.4528418700169123,
+   "mean_hit_rate": 0.8187262581256829,
+   "mean_hit_rate_misdiagnosed": 0.6937416648823332
+  },
+  "n_questions_12": {
+   "true": 78782,
+   "false": 53666,
+   "error_rate": 0.40518543126359025,
+   "mean_hit_rate": 0.8452491412568197,
+   "mean_hit_rate_misdiagnosed": 0.71346634515354
+  },
+  "n_questions_13": {
+   "true": 84407,
+   "false": 48041,
+   "error_rate": 0.3627159338004349,
+   "mean_hit_rate": 0.8623082069302471,
+   "mean_hit_rate_misdiagnosed": 0.7278436672412651
+  },
+  "n_questions_14": {
+   "true": 87495,
+   "false": 44953,
+   "error_rate": 0.3394011234597729,
+   "mean_hit_rate": 0.8773404059087874,
+   "mean_hit_rate_misdiagnosed": 0.7444412010252999
+  },
+  "n_questions_15": {
+   "true": 90326,
+   "false": 42122,
+   "error_rate": 0.3180266972698719,
+   "mean_hit_rate": 0.8924127568191653,
+   "mean_hit_rate_misdiagnosed": 0.7635769869305788
+  },
+  "n_questions_16": {
+   "true": 92011,
+   "false": 40437,
+   "error_rate": 0.3053047233631312,
+   "mean_hit_rate": 0.9016400767773002,
+   "mean_hit_rate_misdiagnosed": 0.7720463899019431
+  },
+  "n_questions_17": {
+   "true": 93313,
+   "false": 39135,
+   "error_rate": 0.29547445035032616,
+   "mean_hit_rate": 0.9113327145509587,
+   "mean_hit_rate_misdiagnosed": 0.7838309795764759
+  },
+  "n_questions_18": {
+   "true": 95195,
+   "false": 37253,
+   "error_rate": 0.2812651002657647,
+   "mean_hit_rate": 0.9217573879286398,
+   "mean_hit_rate_misdiagnosed": 0.7953222349640088
+  },
+  "n_questions_19": {
+   "true": 96739,
+   "false": 35709,
+   "error_rate": 0.2696076950954337,
+   "mean_hit_rate": 0.9308992991560867,
+   "mean_hit_rate_misdiagnosed": 0.8076857925089463
+  },
+  "n_questions_20": {
+   "true": 97797,
+   "false": 34651,
+   "error_rate": 0.2616196545059193,
+   "mean_hit_rate": 0.9359513502699885,
+   "mean_hit_rate_misdiagnosed": 0.8194186895580794
+  },
+  "n_questions_21": {
+   "true": 99150,
+   "false": 33298,
+   "error_rate": 0.251404324716115,
+   "mean_hit_rate": 0.9412106514420253,
+   "mean_hit_rate_misdiagnosed": 0.8324736270063317
+  },
+  "n_questions_22": {
+   "true": 99831,
+   "false": 32617,
+   "error_rate": 0.24626268422324232,
+   "mean_hit_rate": 0.9462649478593472,
+   "mean_hit_rate_misdiagnosed": 0.8408657758697615
+  },
+  "n_questions_23": {
+   "true": 100831,
+   "false": 31617,
+   "error_rate": 0.2387125513409036,
+   "mean_hit_rate": 0.9514760202424419,
+   "mean_hit_rate_misdiagnosed": 0.8528794774999348
+  },
+  "n_questions_24": {
+   "true": 101868,
+   "false": 30580,
+   "error_rate": 0.23088306354191834,
+   "mean_hit_rate": 0.9562542448441066,
+   "mean_hit_rate_misdiagnosed": 0.8610918136801068
+  },
+  "n_questions_25": {
+   "true": 102446,
+   "false": 30002,
+   "error_rate": 0.22651908673592655,
+   "mean_hit_rate": 0.9599101826713795,
+   "mean_hit_rate_misdiagnosed": 0.867941024951391
+  },
+  "n_questions_26": {
+   "true": 103321,
+   "false": 29127,
+   "error_rate": 0.21991272046388016,
+   "mean_hit_rate": 0.9639470398925053,
+   "mean_hit_rate_misdiagnosed": 0.8771157060553497
+  },
+  "n_questions_27": {
+   "true": 104979,
+   "false": 27469,
+   "error_rate": 0.20739460014496255,
+   "mean_hit_rate": 0.970379061285115,
+   "mean_hit_rate_misdiagnosed": 0.8990999088727436
+  },
+  "n_questions_28": {
+   "true": 106313,
+   "false": 26135,
+   "error_rate": 0.1973227228799227,
+   "mean_hit_rate": 0.975840156289276,
+   "mean_hit_rate_misdiagnosed": 0.915296840884176
+  },
+  "n_questions_29": {
+   "true": 106986,
+   "false": 25462,
+   "error_rate": 0.19224148345010872,
+   "mean_hit_rate": 0.9803158421049971,
+   "mean_hit_rate_misdiagnosed": 0.9259718497406031
+  },
+  "n_questions_30": {
+   "true": 107691,
+   "false": 24757,
+   "error_rate": 0.18691863976805992,
+   "mean_hit_rate": 0.9840657983621638,
+   "mean_hit_rate_misdiagnosed": 0.9372862797823415
+  }
+ }
+}
