@@ -34,7 +34,7 @@ This repo uses the DDXPlus Dataset from https://figshare.com/articles/dataset/DD
 11. Investigate pathology models errors, run ```src/error_analysis.ipynb```. Use vitas-env kernel.
 12. Test explainer, run ```src/explainer.ipynb```. Use vitas-env kernel.
 13. Train adaptive questionnaire, run ```src/train_questionnaire.ipnb```. Use vitas-env kernel.
-14. Evaluate adaptive questionnaire together with pathology models, run ```src/eval_questionnaire.ipynb```. Use vitas-env kernel.
+14. Evaluate adaptive questionnaire together with pathology models, run ```src/eval_questionnaire_experiments.ipynb```. Use vitas-env kernel.
 15. Investigate adaptive questionnaire together with pathology models errors, run ```src/error_analysis_questionnaire.ipynb```. Use vitas-env kernel.
 16. Review outputs in ```data/output``` folder
 
