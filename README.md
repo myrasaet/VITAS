@@ -6,7 +6,7 @@ This is VITAS - Virtual Intelligent Tool for Assessment and Symptom Check. This 
 This repo uses the DDXPlus Dataset from https://figshare.com/articles/dataset/DDXPlus_Dataset_English_/22687585
 
 ## Set up
-1. Install Python >= 3.7
+1. Install Python >= 3.10
 2. Install venv
     ```bash
     pip install virtualenv
@@ -17,7 +17,7 @@ This repo uses the DDXPlus Dataset from https://figshare.com/articles/dataset/DD
     ```
 4. Create virtual env
     ```bash
-    virtualenv vitas-env
+    py -3.10 -m venv "vitas-env"
     ```
 5. Activate vitas-env
     ```bash
@@ -34,7 +34,7 @@ This repo uses the DDXPlus Dataset from https://figshare.com/articles/dataset/DD
 11. Investigate pathology models errors, run ```src/error_analysis.ipynb```. Use vitas-env kernel.
 12. Test explainer, run ```src/explainer.ipynb```. Use vitas-env kernel.
 13. Train adaptive questionnaire, run ```src/train_questionnaire.ipnb```. Use vitas-env kernel.
-14. Evaluate adaptive questionnaire together with pathology models, run ```src/eval_questionnaire.ipynb```. Use vitas-env kernel.
+14. Evaluate adaptive questionnaire together with pathology models, run ```src/eval_questionnaire_experiments.ipynb```. Use vitas-env kernel.
 15. Investigate adaptive questionnaire together with pathology models errors, run ```src/error_analysis_questionnaire.ipynb```. Use vitas-env kernel.
 16. Review outputs in ```data/output``` folder
 

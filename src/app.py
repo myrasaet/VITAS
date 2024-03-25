@@ -8,7 +8,7 @@ from treeinterpreter import treeinterpreter as ti
 import pickle
 import matplotlib.pyplot as plt
 from datetime import datetime
-from constants import n_questions, base_path
+from constants import app_n_questions, base_path
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -148,7 +148,7 @@ _, indices = semantic_search.kneighbors(input_embeddings)
 ask_list = [evidences_list[i] for i in indices[0]]
 ask = True
 next_question_idx = 0
-while (question_counter < n_questions) and ask:
+while (question_counter < app_n_questions) and ask:
   if ask_list[next_question_idx] not in asked:
     answer = input(f"Q{question_counter}: {ask_list[next_question_idx]} (y/n)  ")
     asked.append(ask_list[next_question_idx])
@@ -163,11 +163,11 @@ while (question_counter < n_questions) and ask:
     next_question_idx += 1
 
 # ask relevant evidences using KNN
-while question_counter < n_questions:
+while question_counter < app_n_questions:
     ask =  True
     next_question_idx = 0
     next_question = get_next_question(evidences)
-    while ask and (question_counter < n_questions):
+    while ask and (question_counter < app_n_questions):
       if next_question[next_question_idx] not in asked:
         answer = input(f"Q{question_counter}: {next_question[next_question_idx]} (y/n)  ")
         asked.append(next_question[next_question_idx])
@@ -177,7 +177,7 @@ while question_counter < n_questions:
           ask = False
         else:
           next_question_idx += 1
-        if next_question_idx > n_questions:
+        if next_question_idx > app_n_questions:
           break
       else:
           next_question_idx += 1

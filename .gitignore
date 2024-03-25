@@ -9,3 +9,4 @@ data/output/patients
 src/__pycache__
 .Rproj.user
 data/processed/train.arrow
+vitas-env
