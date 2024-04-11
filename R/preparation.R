@@ -405,9 +405,48 @@ unnest_evidences_batch <-
 
 # 2. Unnest Differential Diagnosis ----------------------------------------
 
+#> Description:
+#> In this section, we unnest the differential diagnosis.
+#> This means separating all the diagnosis per patient
+#> and giving each one its own row. This will make it 
+#> easier later on to manipulate the data.
+
+data <- 
+  read_feather("data/processed/prep1_unnestevidences.arrow")
+data <- 
+  data %>%
+  slice_head(n = 100)
+
+out1 <- 
+  data %>% 
+  select(patientId, DIFFERENTIAL_DIAGNOSIS) %>% 
+  # extract the diagnosis name from DIFFERENTIAL_DIAGNOSIS
+  mutate(diagnosis_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\[\\')([:graph:]|\\s)+?(?=\\'\\,)")) %>%
+  # extract the diagnosis score from DIFFERENTIAL_DIAGNOSIS
+  mutate(score_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\,\\s)[\\d\\.e\\-]+?(?=\\])")) %>%
+  rowwise() %>%
+  mutate(diagnosis = list(unlist(diagnosis_list))) %>%
+  mutate(differential_score = list(unlist(score_list))) %>% 
+  select(-diagnosis_list, -score_list)
+
+out2 <- 
+  out1 %>% 
+  unnest_longer(col = c(diagnosis, differential_score)) %>% 
+  mutate(differential_score = as.numeric(differential_score))
+
+out2 %>% 
+  pivot_wider(names_from = diagnosis,
+              values_from = differential_score)
+
+out1 %>% 
+  filter(DIFFERENTIAL_DIAGNOSIS == "[['Allergic sinusitis', 1.0]]")
+
+
 separate_diff_diagnosis_optimized <- function(data, count_diagnosis_keep = 5){
   separated_diag_df <- data %>%
+    # extract the diagnosis name from DIFFERENTIAL_DIAGNOSIS
     mutate(diagnosis_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\[\\')([:graph:]|\\s)+?(?=\\'\\,)")) %>%
+    # extract the diagnosis score from DIFFERENTIAL_DIAGNOSIS
     mutate(score_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\,\\s)[\\d\\.e\\-]+?(?=\\])")) %>%
     rowwise() %>%
     mutate(diagnosis = list(unlist(diagnosis_list))) %>%
@@ -424,7 +463,8 @@ separate_diff_diagnosis_optimized <- function(data, count_diagnosis_keep = 5){
   
   new_df <- data %>%
     right_join(separated_diag_df, by = "patientId") %>%
-    relocate(diagnosis, differential_score, differential_rank, .after = DIFFERENTIAL_DIAGNOSIS) %>%
+    relocate(diagnosis, differential_score, differential_rank, 
+             .after = DIFFERENTIAL_DIAGNOSIS) %>%
     arrange(patientId)
   
   return(new_df)
@@ -455,3 +495,69 @@ unnest_differential <-
     return(out)
     
   }
+
+
+separate_diff_diagnosis_optimized <- function(data, count_diagnosis_keep = 5){
+  separated_diag_df <- data %>%
+    # extract the diagnosis name from DIFFERENTIAL_DIAGNOSIS
+    mutate(diagnosis_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\[\\')([:graph:]|\\s)+?(?=\\'\\,)")) %>%
+    # extract the diagnosis score from DIFFERENTIAL_DIAGNOSIS
+    mutate(score_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\,\\s)[\\d\\.e\\-]+?(?=\\])")) %>%
+    rowwise() %>%
+    mutate(diagnosis = list(unlist(diagnosis_list))) %>%
+    mutate(differential_score = list(unlist(score_list))) %>%
+    unnest_longer(col = c(diagnosis, differential_score)) %>%
+    select(-diagnosis_list, -score_list) %>%
+    group_by(patientId) %>%
+    mutate(
+      differential_score = as.numeric(differential_score),
+      differential_rank = rank(-differential_score, ties.method = "min")
+    ) %>%
+    filter(differential_rank <= count_diagnosis_keep) %>%
+    select(patientId, diagnosis, differential_score, differential_rank)
+  
+  new_df <- data %>%
+    right_join(separated_diag_df, by = "patientId") %>%
+    relocate(diagnosis, differential_score, differential_rank, 
+             .after = DIFFERENTIAL_DIAGNOSIS) %>%
+    arrange(patientId)
+  
+  return(new_df)
+}
+
+#' @export
+unnest_differential <-
+  function(data, count_diagnosis_keep = 5){
+    
+    test_optimized <- 
+      separate_diff_diagnosis_optimized(
+        data = data,
+        count_diagnosis_keep = count_diagnosis_keep)
+    
+    # Computing weights
+    
+    # Proportion
+    out <- test_optimized %>% 
+      group_by(patientId) %>% 
+      mutate(
+        differential_case_weight = 
+          differential_score/max(differential_score, 
+                                 na.rm = TRUE),
+        .after = differential_rank) %>% 
+      ungroup() |> 
+      select(-DIFFERENTIAL_DIAGNOSIS)
+    
+    return(out)
+    
+  }
+
+
+# 3. Data Preparation for CoDa Modeling ---------------------------------
+
+coda_prediction_preparation <-
+  function(){
+    
+    
+    
+  }
+
