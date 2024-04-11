@@ -30,13 +30,14 @@ This repo uses the DDXPlus Dataset from https://figshare.com/articles/dataset/DD
 7. Download input data from https://figshare.com/articles/dataset/DDXPlus_Dataset_English_/22687585 and put in ```data/input``` folder 
 8. Download sentence transformers. Run ```src/download_tranformers.ipynb```. Use vitas-env kernel.
 9. Train pathology models, run ```src/train.ipynb```. This repo trains a random forest and logistic regression model for each of the 49 diseases in the DDXPlus dataset. Use vitas-env kernel.
-10. Evaluate pathology models, run ```src/eval.ipynb```. Use vitas-env kernel.
-11. Investigate pathology models errors, run ```src/error_analysis.ipynb```. Use vitas-env kernel.
-12. Test explainer, run ```src/explainer.ipynb```. Use vitas-env kernel.
-13. Train adaptive questionnaire, run ```src/train_questionnaire.ipnb```. Use vitas-env kernel.
-14. Evaluate adaptive questionnaire together with pathology models, run ```src/eval_questionnaire_experiments.ipynb```. Use vitas-env kernel.
-15. Investigate adaptive questionnaire together with pathology models errors, run ```src/error_analysis_questionnaire.ipynb```. Use vitas-env kernel.
-16. Review outputs in ```data/output``` folder
+10. (Optional) Evaluate pathology models, run ```src/eval.ipynb```. Use vitas-env kernel.
+11. (Optional) Investigate pathology models errors, run ```src/error_analysis.ipynb```. Use vitas-env kernel.
+12. (Optional) Test explainer, run ```src/explainer.ipynb```. Use vitas-env kernel.
+13. Train semantic serach, run ```src/semantic_search.ipynb```. Use vitas-env kernel.
+14. Train adaptive questionnaire, run ```src/train_questionnaire.ipynb```. Use vitas-env kernel.
+15. (Optional) Evaluate adaptive questionnaire together with pathology models, run ```src/eval_questionnaire_experiments.ipynb```. Use vitas-env kernel.
+16. (Optional) Investigate adaptive questionnaire together with pathology models errors, run ```src/error_analysis_questionnaire.ipynb```. Use vitas-env kernel.
+17. Review outputs in ```data/output``` folder
 
 ## Usage
 1. Go to your repo directory
