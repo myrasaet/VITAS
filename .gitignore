@@ -1,11 +1,6 @@
 data/input
-data/output/diseases
-data/output/consultation
-data/output/error_analysis/*.jpg
-data/output/error_analysis_questionnaire/*.jpg
-data/output/error_analysis/*.csv
-data/output/error_analysis_questionnaire/*.csv
-data/output/patients
+data/output
+data/processed/questionnaire_experiments
 src/__pycache__
 .Rproj.user
 data/processed/train.arrow
