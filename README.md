@@ -29,7 +29,7 @@ This repo uses the DDXPlus Dataset from https://figshare.com/articles/dataset/DD
     ```
 7. Download input data from https://figshare.com/articles/dataset/DDXPlus_Dataset_English_/22687585 and put in ```data/input``` folder 
 8. Download sentence transformers. Run ```src/download_tranformers.ipynb```. Use vitas-env kernel.
-9. Train pathology models, run ```src/train.ipynb```. This repo trains a random forest and logistic regression model for each of the 49 diseases in the DDXPlus dataset. Use vitas-env kernel.
+9. Train pathology models, run ```src/train.ipynb```. This repo trains a decision tree, random forest, gradient boosting, and logistic regression model for each of the 49 diseases in the DDXPlus dataset. Use vitas-env kernel.
 10. (Optional) Evaluate pathology models, run ```src/eval.ipynb```. Use vitas-env kernel.
 11. (Optional) Investigate pathology models errors, run ```src/error_analysis.ipynb```. Use vitas-env kernel.
 12. (Optional) Test explainer, run ```src/explainer.ipynb```. Use vitas-env kernel.
