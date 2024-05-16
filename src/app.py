@@ -35,11 +35,14 @@ disease_list = list(disease_dict.keys())
 model_list = list(model_list["tree-based"].keys())
 model_list.append("logistic_regression")
 model_dict = {model_name:{} for model_name in model_list}
+feature_importance = {}
 for model_name in model_list:
   for disease in disease_list:
       disease_filename = re.sub('[^a-zA-Z0-9 \n\.]', '', disease).replace(" ", "_")
       with open(f'{base_path}\\output\\diseases\\{disease_filename}\\{model_name}\\{disease_filename}_model.pkl', 'rb') as f:
           model_dict[model_name][disease] = pickle.load(f)
+      with open(f'{base_path}\\output\\diseases\\{disease_filename}\\logistic_regression\\feature_importance.json', 'rb') as f:
+        feature_importance[disease] = json.load(f)
 ################### Load Data ###################
 
 
@@ -73,7 +76,7 @@ def vectorize_input(evidences, age, sex):
         df[evidences_en_to_code[e]] = [1 if e in evidences else 0]
     return df
 
-def pred_explain(x, asked):
+def pred_explain(x):
     # create output path per patient
     datetime_now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     img_path = f"{base_path}\\output\\consultations\\{datetime_now}"    
@@ -119,7 +122,9 @@ def pred_explain(x, asked):
                 symptoms_df = pd.DataFrame({"symptoms_en": symptoms_en, "symptoms_values": symptoms_values})
                 if model_name=="logistic_regression":
                   prediction = clf_model.predict_proba(x)[0][1]
-                  model_coeffs = clf_model.coef_[0]
+                  # model_coeffs = clf_model.coef_[0]
+                  # get standardized coeffs
+                  model_coeffs = [feature_importance[target_disease][evidences_code_to_en[f]] for f in x.columns]
                   contributions_values = [model_coeffs[i]*symptoms_values[i] for i in range(len(symptoms_values))]
                   contributions_df = pd.DataFrame({"symptoms_en": symptoms_en, "contributions_values": contributions_values, "contributions_abs_values": [abs(i) for i in contributions_values]})
                 else:
@@ -194,7 +199,7 @@ while question_counter < app_n_questions:
 
 print("Analyzing...")
 input_vector = vectorize_input(evidences, age, sex)
-output = pred_explain(input_vector, asked)
+output = pred_explain(input_vector)
 print(f"Done! Please see output in {output}")
 ################### Serve ###################
 
