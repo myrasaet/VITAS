@@ -134,7 +134,7 @@ def pred_explain(x):
                 contributions_df.index  = symptoms_df["symptoms_en"] + "=" + symptoms_df["symptoms_values"].astype(str)
                 contributions_df["symptoms_values"] = symptoms_values
                 contributions_df = contributions_df[contributions_df["contributions_values"]>0]
-                contributions_df = contributions_df[(~contributions_df["symptoms_en"].isin(["AGE", "SEX"])) & (contributions_df["symptoms_values"]>0)]
+                contributions_df = contributions_df[(contributions_df["symptoms_en"].isin(["AGE", "SEX"])) | (contributions_df["symptoms_values"]>0)]
                 contributions_df = contributions_df.sort_values(by="contributions_abs_values", ascending=False).head(10).sort_values(by="contributions_abs_values")
                 contributions_df["contributions_values"].plot.barh()
                 plt.xlabel("Symptom Importance Score")
