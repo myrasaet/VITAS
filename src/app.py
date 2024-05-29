@@ -8,7 +8,7 @@ from treeinterpreter import treeinterpreter as ti
 import pickle
 import matplotlib.pyplot as plt
 from datetime import datetime
-from constants import app_n_questions, base_path, model_list
+from constants import app_n_questions, base_path, model_list, pathology_scope, positive_threshold
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -30,7 +30,10 @@ for e in evidences.keys():
 # get disease list
 with open(f"{base_path}\\input\\release_conditions.json") as f:
   disease_dict = json.load(f)
-disease_list = list(disease_dict.keys())
+if pathology_scope:
+   disease_list =  pathology_scope
+else:
+  disease_list = list(disease_dict.keys())
 
 model_list = list(model_list["tree-based"].keys())
 model_list.append("logistic_regression")
@@ -90,8 +93,8 @@ def pred_explain(x):
       for target_disease in disease_list:
           clf_model = model_dict[model_name][target_disease]
           prediction = clf_model.predict_proba(x)
-          prediction_proba = prediction[0][1]
-          if prediction_proba>0:
+          prediction_proba = np.round(prediction[0][1], 2)
+          if prediction_proba >= positive_threshold:
               pred_list.append({
                   "disease": target_disease,
                   "probability": prediction_proba
@@ -121,7 +124,7 @@ def pred_explain(x):
                 symptoms_values = [x[f].values[0] for f in x.columns]
                 symptoms_df = pd.DataFrame({"symptoms_en": symptoms_en, "symptoms_values": symptoms_values})
                 if model_name=="logistic_regression":
-                  prediction = clf_model.predict_proba(x)[0][1]
+                  prediction = np.round(clf_model.predict_proba(x)[0][1], 2)
                   # model_coeffs = clf_model.coef_[0]
                   # get standardized coeffs
                   model_coeffs = [feature_importance[target_disease][evidences_code_to_en[f]] for f in x.columns]
@@ -136,13 +139,14 @@ def pred_explain(x):
                 contributions_df = contributions_df[contributions_df["contributions_values"]>0]
                 contributions_df = contributions_df[(contributions_df["symptoms_en"].isin(["AGE", "SEX"])) | (contributions_df["symptoms_values"]>0)]
                 contributions_df = contributions_df.sort_values(by="contributions_abs_values", ascending=False).head(10).sort_values(by="contributions_abs_values")
-                contributions_df["contributions_values"].plot.barh()
-                plt.xlabel("Symptom Importance Score")
-                plt.title(f"Probability of {target_disease}: {pred_dict[target_disease]:.3f}\n({model_name})")
-                plt.figtext(.01, .99, 'Symptoms with higher importance score support a positive diagnosis.')                
-                img_filename = re.sub('[^a-zA-Z0-9 \n\.]', '', target_disease).replace(" ", "_")
-                plt.savefig(f"{model_output_path}\\{img_filename}.jpg", bbox_inches='tight')
-                plt.clf()
+                if not contributions_df.empty:
+                  contributions_df["contributions_values"].plot.barh()
+                  plt.xlabel("Symptom Importance Score")
+                  plt.title(f"Probability of {target_disease}: {pred_dict[target_disease]:.3f}\n({model_name})")
+                  plt.figtext(.01, .99, 'Symptoms with higher importance score support a positive diagnosis.')                
+                  img_filename = re.sub('[^a-zA-Z0-9 \n\.]', '', target_disease).replace(" ", "_")
+                  plt.savefig(f"{model_output_path}\\{img_filename}.jpg", bbox_inches='tight')
+                  plt.clf()
     return img_path
 ################### Define Functions ###################
 

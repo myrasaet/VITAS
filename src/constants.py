@@ -13,5 +13,9 @@ model_list = {
 }
 
 max_n_questions = 208
-app_n_questions = 30
+app_n_questions = 25 # base on adaptive questionnaire simulations
 base_path = f"{os.path.dirname(os.getcwd())}\\data"
+
+# set to empty list, [] if you want to run all 49 pathologies
+pathology_scope = ["Tuberculosis", "GERD", "SLE", "HIV (initial infection)", "Pulmonary neoplasm"]
+positive_threshold = 0.5
