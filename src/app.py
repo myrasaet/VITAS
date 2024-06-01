@@ -8,6 +8,7 @@ from treeinterpreter import treeinterpreter as ti
 import pickle
 import matplotlib.pyplot as plt
 from datetime import datetime
+import time
 from constants import app_n_questions, base_path, model_list, pathology_scope, positive_threshold
 import warnings
 warnings.filterwarnings("ignore")
@@ -202,8 +203,10 @@ while question_counter < app_n_questions:
           next_question_idx += 1
 
 print("Analyzing...")
+start_time = time.time()
 input_vector = vectorize_input(evidences, age, sex)
 output = pred_explain(input_vector)
 print(f"Done! Please see output in {output}")
+print(f"runtime: {time.time() - start_time} sec")
 ################### Serve ###################
 
