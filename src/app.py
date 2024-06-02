@@ -110,6 +110,8 @@ def pred_explain(x):
           pred_df = pred_df.sort_values(by="probability", ascending=False)
           pred_dict_all = pred_df.to_dict()["probability"]
           pred_df = pred_df[pred_df["rank"]<=1][["probability"]]
+          if pred_df.shape[0] > 1: # in case of tied rankings
+            pred_df = pred_df.sample(random_state=1)
           pred_dict = pred_df.to_dict()["probability"]
           diagnosis_prediction = {
               "diagnosis_prediction": pred_dict_all
