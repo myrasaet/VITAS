@@ -62,6 +62,37 @@ pull_training <-
   }
 
 
+#' @export
+pull_testing <- 
+  function(pull_from_raw = FALSE){
+    
+    if (pull_from_raw == TRUE){
+      release_test_patients_raw <- 
+        read_csv(file  = here(input_path,
+                              "release_validate_patients"))
+      
+      arrow::write_feather(x = release_test_patients_raw, 
+                           sink = here(processed_path, 
+                                       "test.arrow"))
+      release_test_patients <- 
+        arrow::open_dataset("data/processed/test.arrow", format = "arrow")
+      
+      message(
+        paste0("Saved to ", 
+               here(processed_path, 
+                    "test.arrow"))
+      )
+    } else {
+      
+      release_test_patients <- 
+        arrow::open_dataset("data/processed/test.arrow", format = "arrow")
+      
+    }
+    
+    return(release_test_patients)
+    
+  }
+
 
 #' @export
 pull_evidences <-

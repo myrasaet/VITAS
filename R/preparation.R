@@ -21,7 +21,8 @@ box::use(
   furrr[...],
   future[...],
   dtplyr[...],
-  R/pull
+  R/pull,
+  R/utils
 )
 
 # box::reload(pull)
@@ -39,6 +40,7 @@ box::use(
 #' @export
 get_top10_multiclass_evidences <-
   function(train){
+    
     to_get_top10 <- c("E_55","E_57","E_133","E_152")
     out <- map(to_get_top10,
          .f = function(x){
@@ -189,6 +191,7 @@ unnest_evidences <-
     
     # data <- train_sample
     # data <- train
+    # data <- d[[1]]
     
     evidence_classes_df <-
       arrow::read_feather(
@@ -324,8 +327,23 @@ unnest_evidences <-
     
     
     prep2 <- prep_profile %>% 
-      bind_cols(as_tibble(prep_numeric_col)) %>% 
-      bind_cols(as_tibble(prep_char_col))
+      bind_cols(as_tibble(prep_numeric_col))
+    
+    if (ncol(prep_char_col) > 0){
+      rlang::inform("Add character evidences...")
+      prep2 <- 
+        prep2 %>% 
+        bind_cols(as_tibble(prep_char_col)) 
+    } else {
+      
+      # matrix(data = 0, 
+      #        nrow = nrow(prep2),
+      #        ncol = evidence_classes_df %>% 
+      #                        filter(data_type == "C") %>% 
+      #                        nrow())
+      # 
+    }
+
     
     # Re-add missing evidence columns
     emp <- cook_empty_tibble(data = prep2)
@@ -374,7 +392,8 @@ divide_data_to_batches <- function(data,rows_per_batch){
 unnest_evidences_batch <-
   function(data, chunk_size = 10000, result_path){
     
-    # data <- train_sample # TEST
+    # data <- test_adaptive # TEST
+    
     n <- nrow(data)
     d_size <- nrow(data)
     
@@ -410,154 +429,233 @@ unnest_evidences_batch <-
 #> This means separating all the diagnosis per patient
 #> and giving each one its own row. This will make it 
 #> easier later on to manipulate the data.
+#> UPDATE: We now separate the differential diagnosis
+#> to different columns. This is because we need this
+#> for compositional data analysis.
 
-data <- 
-  read_feather("data/processed/prep1_unnestevidences.arrow")
-data <- 
-  data %>%
-  slice_head(n = 100)
+# data <- 
+#   read_feather("data/processed/prep1_unnestevidences.arrow")
+# data <- 
+#   data %>%
+#   slice_head(n = 100000)
 
-out1 <- 
-  data %>% 
-  select(patientId, DIFFERENTIAL_DIAGNOSIS) %>% 
-  # extract the diagnosis name from DIFFERENTIAL_DIAGNOSIS
-  mutate(diagnosis_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\[\\')([:graph:]|\\s)+?(?=\\'\\,)")) %>%
-  # extract the diagnosis score from DIFFERENTIAL_DIAGNOSIS
-  mutate(score_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\,\\s)[\\d\\.e\\-]+?(?=\\])")) %>%
-  rowwise() %>%
-  mutate(diagnosis = list(unlist(diagnosis_list))) %>%
-  mutate(differential_score = list(unlist(score_list))) %>% 
-  select(-diagnosis_list, -score_list)
-
-out2 <- 
-  out1 %>% 
-  unnest_longer(col = c(diagnosis, differential_score)) %>% 
-  mutate(differential_score = as.numeric(differential_score))
-
-out2 %>% 
-  pivot_wider(names_from = diagnosis,
-              values_from = differential_score)
-
-out1 %>% 
-  filter(DIFFERENTIAL_DIAGNOSIS == "[['Allergic sinusitis', 1.0]]")
-
-
-separate_diff_diagnosis_optimized <- function(data, count_diagnosis_keep = 5){
+#' @export
+unnest_differential <- function(data){
   separated_diag_df <- data %>%
+    select(patientId, DIFFERENTIAL_DIAGNOSIS) %>% 
     # extract the diagnosis name from DIFFERENTIAL_DIAGNOSIS
     mutate(diagnosis_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\[\\')([:graph:]|\\s)+?(?=\\'\\,)")) %>%
     # extract the diagnosis score from DIFFERENTIAL_DIAGNOSIS
     mutate(score_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\,\\s)[\\d\\.e\\-]+?(?=\\])")) %>%
+    select(-DIFFERENTIAL_DIAGNOSIS) %>% 
     rowwise() %>%
     mutate(diagnosis = list(unlist(diagnosis_list))) %>%
     mutate(differential_score = list(unlist(score_list))) %>%
     unnest_longer(col = c(diagnosis, differential_score)) %>%
     select(-diagnosis_list, -score_list) %>%
-    group_by(patientId) %>%
     mutate(
-      differential_score = as.numeric(differential_score),
-      differential_rank = rank(-differential_score, ties.method = "min")
+      differential_score = as.numeric(differential_score)
     ) %>%
-    filter(differential_rank <= count_diagnosis_keep) %>%
-    select(patientId, diagnosis, differential_score, differential_rank)
+    mutate(diagnosis = paste0("diag_",diagnosis)) %>% 
+    pivot_wider(names_from = diagnosis,
+                values_from = differential_score)
   
   new_df <- data %>%
+    select(-DIFFERENTIAL_DIAGNOSIS) %>% 
     right_join(separated_diag_df, by = "patientId") %>%
-    relocate(diagnosis, differential_score, differential_rank, 
-             .after = DIFFERENTIAL_DIAGNOSIS) %>%
     arrange(patientId)
   
   return(new_df)
 }
 
-#' @export
-unnest_differential <-
-  function(data, count_diagnosis_keep = 5){
-    
-    test_optimized <- 
-      separate_diff_diagnosis_optimized(
-        data = data,
-        count_diagnosis_keep = count_diagnosis_keep)
-    
-    # Computing weights
-    
-    # Proportion
-    out <- test_optimized %>% 
-      group_by(patientId) %>% 
-      mutate(
-        differential_case_weight = 
-          differential_score/max(differential_score, 
-                                 na.rm = TRUE),
-        .after = differential_rank) %>% 
-      ungroup() |> 
-      select(-DIFFERENTIAL_DIAGNOSIS)
-    
-    return(out)
-    
-  }
+# Sys.time()
+# check <- unnest_differential(data)
+# names(check)
+# Sys.time()
+# View(head(check))
 
-
-separate_diff_diagnosis_optimized <- function(data, count_diagnosis_keep = 5){
-  separated_diag_df <- data %>%
-    # extract the diagnosis name from DIFFERENTIAL_DIAGNOSIS
-    mutate(diagnosis_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\[\\')([:graph:]|\\s)+?(?=\\'\\,)")) %>%
-    # extract the diagnosis score from DIFFERENTIAL_DIAGNOSIS
-    mutate(score_list = str_extract_all(DIFFERENTIAL_DIAGNOSIS, "(?<=\\,\\s)[\\d\\.e\\-]+?(?=\\])")) %>%
-    rowwise() %>%
-    mutate(diagnosis = list(unlist(diagnosis_list))) %>%
-    mutate(differential_score = list(unlist(score_list))) %>%
-    unnest_longer(col = c(diagnosis, differential_score)) %>%
-    select(-diagnosis_list, -score_list) %>%
-    group_by(patientId) %>%
-    mutate(
-      differential_score = as.numeric(differential_score),
-      differential_rank = rank(-differential_score, ties.method = "min")
-    ) %>%
-    filter(differential_rank <= count_diagnosis_keep) %>%
-    select(patientId, diagnosis, differential_score, differential_rank)
-  
-  new_df <- data %>%
-    right_join(separated_diag_df, by = "patientId") %>%
-    relocate(diagnosis, differential_score, differential_rank, 
-             .after = DIFFERENTIAL_DIAGNOSIS) %>%
-    arrange(patientId)
-  
-  return(new_df)
-}
 
 #' @export
-unnest_differential <-
-  function(data, count_diagnosis_keep = 5){
+dd_pivot_wider <-
+  function(path_unnested_differential,
+           save_path){
     
-    test_optimized <- 
-      separate_diff_diagnosis_optimized(
-        data = data,
-        count_diagnosis_keep = count_diagnosis_keep)
+    # path_unnested_differential <-
+    #   "data/processed/unnested_differential/"
+    # save_path <-
+    #   "data/processed/unnested_differential_wide/"
+    path_unnested_differential <-
+      "data/processed/validation/unnested_differential/"
+    save_path <-
+      "data/processed/validation/unnested_differential_wide/"
     
-    # Computing weights
     
-    # Proportion
-    out <- test_optimized %>% 
-      group_by(patientId) %>% 
-      mutate(
-        differential_case_weight = 
-          differential_score/max(differential_score, 
-                                 na.rm = TRUE),
-        .after = differential_rank) %>% 
-      ungroup() |> 
-      select(-DIFFERENTIAL_DIAGNOSIS)
+    dd_feather_files <- 
+      list.files(path_unnested_differential)
+    # dd_feather_files <- 
+    #   dd_feather_files[1:2]
     
-    return(out)
+    iwalk(
+      dd_feather_files,
+      .f = function(x, idx){
+        
+        # x <- dd_feather_files[1]
+        
+        dat <- 
+          read_feather(paste0(path_unnested_differential,
+                              x))
+        
+        
+        
+        # Remove unecessary fields and 
+        # create initial compositional dependent variable
+        # by create a column for each unique diagnosis (49 pathologies = 49 columns)
+        train_prep1 <-
+          dat %>% 
+          select(-INITIAL_EVIDENCE) %>% 
+          # mutate(diagnosis = paste0("diag_",diagnosis)) %>% 
+          pivot_wider(names_from = diagnosis, values_from = differential_score) %>% 
+          as_tibble()
+        
+        rm(dat)
+        
+        # save results
+        write_feather(
+          train_prep1,
+          sink = paste0(save_path,
+                        "unnested_dd_wide_batch",
+                        idx,".arrow")
+        )
+        
+        rm(train_prep1)
+        gc()
+        
+      }, .progress = TRUE
+    )
+  
     
   }
-
 
 # 3. Data Preparation for CoDa Modeling ---------------------------------
 
+
+#' @export
 coda_prediction_preparation <-
-  function(){
+  function(data){
+    
+    box::use(
+      stats[...],
+      caret[...],
+      compositions[...]
+    )
+    
+
+    # data <- check # TEST
+    # data <- train_prep1 # TEST
     
     
+    # Extract outcome variables
+    outcome <- 
+      data %>% 
+      select(matches("diag"))
+    
+    # Convert all NA diagnosis to very small number
+    # Since comp regression cannot accept NA
+    outcome[is.na(outcome)] <- 0.0000001
+    # Close the compositional data
+    outcome <- clo(outcome)
+    
+    id_cols <-
+      c("patientId","PATHOLOGY")
+    
+    id <- 
+      data %>% 
+      select(all_of(id_cols))
+    
+    predictors <-
+      data %>% 
+      select(-matches("diag")) %>% 
+      select(-all_of(id_cols)) %>% 
+      mutate(across(where(is.character), as.factor))
+    
+    
+    # Prepare numeric predictors
+    pred_num <- 
+      predictors %>% 
+      select(where(is.numeric))
+    # Normalize the numberic variables
+    pred_num <- 
+      pred_num %>% 
+      mutate(across(everything(),~scale(.)[,1]))
+    # Convert all NA values to 0
+    pred_num[is.na(pred_num)] <- 0
+    
+    
+    # Prepare factor predictors
+    # pred_fct <- 
+    #   predictors %>% 
+    #   select(-where(is.numeric))
+    # # dummify the data
+    # dmy <- dummyVars(" ~ .", data = pred_fct)
+    # pred_fct <- data.frame(predict(dmy, newdata = pred_fct))
+    
+    pred_fct <- 
+      utils$get_dummy_categories_from_pred(predictors)
+    
+    # Scale the variables
+    # pred_fct <- 
+    #   pred_fct %>% 
+    #   mutate(across(everything(),~scale(.)[,1]))
+    
+    # Combine all dfs
+    # predictor_prepped <-
+    #   bind_cols(id, pred_num, pred_fct, outcome)
+    
+    list(predictors = 
+           bind_cols(pred_num, pred_fct),
+         id = id,
+         outcome = as_tibble(outcome))
     
   }
+
+
+# check2 <- coda_prediction_preparation(check %>% 
+#                                         select(-PATHOLOGY))
+# names(check2)
+# names(check2$predictors)
+# library(compositions)
+# 
+# Y <- acomp(check2$outcome)
+# mod <- 
+#   lm(Y ~ as.matrix(check2$predictors))
+# 
+# test <-
+#   predict(mod, newdata = check2$predictors[1:100,])
+# rowSums(test)
+# 
+# manual_evaluate <-
+#   function(idx){
+#     
+#     test[idx,] %>% 
+#       round(2) %>% 
+#       sort(decreasing = T) %>% 
+#       .[. > 0.02] %>% 
+#       print()
+#     
+#     
+#     bind_cols(check2$outcome)[1:100,] %>% 
+#       slice(idx) %>% 
+#       pivot_longer(cols = everything(),
+#                    names_to = "diagnosis",
+#                    values_to = "prob") %>% 
+#       arrange(desc(prob)) %>% 
+#       print()
+#     
+#   }
+# manual_evaluate(3)
+
+
+
+
+
 
