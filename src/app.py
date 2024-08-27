@@ -8,25 +8,22 @@ from treeinterpreter import treeinterpreter as ti
 import pickle
 import matplotlib.pyplot as plt
 from datetime import datetime
-from constants import app_n_questions, base_path
+import time
+from constants import app_n_questions, base_path, model_list, pathology_scope, positive_threshold
 import warnings
 warnings.filterwarnings("ignore")
 
 print("App is initializing...")
 ################### Load Data ###################
-# load feature importance from global explainer output
-with open(f"{base_path}\\output\\feature_importance.json") as f:
-  feature_importance_dict = json.load(f)
-
 # get evidence list
 with open(f"{base_path}\\input\\release_evidences.json") as f:
   evidences = json.load(f)
 evidences_list = []
-evidences_code_to_en = {}
-evidences_en_to_code = {}
+evidences_code_to_en = {"AGE": "AGE", "SEX": "SEX"}
+evidences_en_to_code = {"AGE": "AGE", "SEX": "SEX"}
 for e in evidences.keys():
-  # only binary symptoms and no antecedents
-  if (not evidences[e]["possible-values"]) and (not evidences[e]["is_antecedent"]):
+  # only binary symptoms and antecedents
+  if (not evidences[e]["possible-values"]):
     evidences_list.append(evidences[e]["question_en"])
     evidences_code_to_en[e] = evidences[e]["question_en"]
     evidences_en_to_code[evidences[e]["question_en"]] = e
@@ -34,13 +31,22 @@ for e in evidences.keys():
 # get disease list
 with open(f"{base_path}\\input\\release_conditions.json") as f:
   disease_dict = json.load(f)
-disease_list = list(disease_dict.keys())
+if pathology_scope:
+   disease_list =  pathology_scope
+else:
+  disease_list = list(disease_dict.keys())
 
-model_dict = {}
-for disease in disease_list:
-    disease_filename = re.sub('[^a-zA-Z0-9 \n\.]', '', disease).replace(" ", "_")
-    with open(f'{base_path}\\output\\diseases\\{disease_filename}\\{disease_filename}_model.pkl', 'rb') as f:
-        model_dict[disease] = pickle.load(f)
+model_list = list(model_list["tree-based"].keys())
+model_list.append("logistic_regression")
+model_dict = {model_name:{} for model_name in model_list}
+feature_importance = {}
+for model_name in model_list:
+  for disease in disease_list:
+      disease_filename = re.sub('[^a-zA-Z0-9 \n\.]', '', disease).replace(" ", "_")
+      with open(f'{base_path}\\output\\diseases\\{disease_filename}\\{model_name}\\{disease_filename}_model.pkl', 'rb') as f:
+          model_dict[model_name][disease] = pickle.load(f)
+      with open(f'{base_path}\\output\\diseases\\{disease_filename}\\logistic_regression\\feature_importance.json', 'rb') as f:
+        feature_importance[disease] = json.load(f)
 ################### Load Data ###################
 
 
@@ -74,61 +80,77 @@ def vectorize_input(evidences, age, sex):
         df[evidences_en_to_code[e]] = [1 if e in evidences else 0]
     return df
 
-# TO DO - add params for which model to use RF/Logistic
-def pred_explain(x, asked):
+def pred_explain(x):
     # create output path per patient
     datetime_now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    img_path = f"{base_path}\\output\\consultation\\{datetime_now}"
-    if not os.path.exists(img_path):
-        os.makedirs(img_path)
-    
-    # predict
-    pred_list = []
-    for target_disease in disease_list:
-        rf_model = model_dict[target_disease]
-        prediction = rf_model.predict_proba(x)
-        prediction_proba = prediction[0][1]
-        if prediction_proba>0:
-            pred_list.append({
-                "disease": target_disease,
-                "probability": prediction_proba
-            })
-    
-    # return all predictions, no rank filter
-    # but explain top 1 only - rank allows ties
-    if pred_list:
-        pred_df = pd.DataFrame(pred_list).set_index('disease')
-        pred_df['rank'] = pred_df['probability'].rank(method='min', ascending=False)
-        pred_df = pred_df.sort_values(by="rank")
-        pred_df = pred_df.sort_values(by="probability", ascending=False)
-        pred_dict_all = pred_df.to_dict()["probability"]
-        pred_df = pred_df[pred_df["rank"]<=1][["probability"]]
-        pred_dict = pred_df.to_dict()["probability"]
-        # pred_dict = pred_dict_all
-        diagnosis_prediction = {
-            "diagnosis_prediction": pred_dict_all
-        }
-        with open(f"{img_path}\\diagnosis_prediction.json", "w") as outfile: 
-            json.dump(diagnosis_prediction, outfile, indent=True)
-        for target_disease in pred_dict:
-            rf_model = model_dict[target_disease]
-            prediction, bias, contributions = ti.predict(rf_model, x)
-            contributions_values = contributions[0][:,1]
-            symptoms_en = x.columns.map(evidences_code_to_en)
-            symptoms_values = [str(x[f].values[0]) for f in x.columns]
-            symptoms_df = pd.DataFrame({"symptoms_en": symptoms_en, "symptoms_values": symptoms_values})
-            contributions_df = pd.DataFrame({"symptoms_en": symptoms_en, "contributions_values": contributions_values, "contributions_abs_values": abs(contributions_values)})
-            contributions_df.index  = symptoms_df["symptoms_en"] + "=" + symptoms_df["symptoms_values"]
-            contributions_df = contributions_df[contributions_df['symptoms_en'].isin(asked)] # why empty????
-            contributions_df = contributions_df.sort_values(by="contributions_abs_values", ascending=False).head(10).sort_values(by="contributions_abs_values")
-            contributions_df["contributions_values"].plot.barh()
-            plt.xlabel("Symptom Importance Score")
-            plt.title(f"Probability of {target_disease}: {pred_dict[target_disease]:.3f}")
-            plt.figtext(.01, .99, 'Symptoms with bars pointing to the right support a positive diagnosis.\nSymptoms with bars pointing to the left do not support a positive diagnosis.')
-            img_filename = re.sub('[^a-zA-Z0-9 \n\.]', '', target_disease).replace(" ", "_")
-            plt.savefig(f"{img_path}\\{img_filename}.jpg", bbox_inches='tight')
-            plt.clf()
-    return pred_dict_all, img_path
+    img_path = f"{base_path}\\output\\consultations\\{datetime_now}"    
+    for model_name in model_list:
+      model_output_path = f"{img_path}\\{model_name}"
+      if not os.path.exists(model_output_path):
+        os.makedirs(model_output_path)
+
+      # predict
+      pred_list = []
+      for target_disease in disease_list:
+          clf_model = model_dict[model_name][target_disease]
+          prediction = clf_model.predict_proba(x)
+          prediction_proba = np.round(prediction[0][1], 2)
+          if prediction_proba >= positive_threshold:
+              pred_list.append({
+                  "disease": target_disease,
+                  "probability": prediction_proba
+              })
+      
+      # return all predictions, no rank filter
+      # but explain top 1 only - rank allows ties
+      if pred_list:
+          pred_df = pd.DataFrame(pred_list).set_index('disease')
+          pred_df['rank'] = pred_df['probability'].rank(method='min', ascending=False)
+          pred_df = pred_df.sort_values(by="rank")
+          pred_df = pred_df.sort_values(by="probability", ascending=False)
+          pred_dict_all = pred_df.to_dict()["probability"]
+          pred_df = pred_df[pred_df["rank"]<=1][["probability"]]
+          if pred_df.shape[0] > 1: # in case of tied rankings
+            pred_df = pred_df.sample(random_state=1)
+          pred_dict = pred_df.to_dict()["probability"]
+          diagnosis_prediction = {
+              "diagnosis_prediction": pred_dict_all
+          }
+          with open(f"{model_output_path}\\diagnosis_prediction.json", "w") as outfile: 
+              json.dump(diagnosis_prediction, outfile, indent=True)
+
+          # to do: configurize explainer flag rather than a hard-code condition
+          if model_name in ["decision_tree", "random_forest", "logistic_regression"]:
+            for target_disease in pred_dict:
+                clf_model = model_dict[model_name][target_disease]
+                symptoms_en = x.columns.map(evidences_code_to_en)
+                symptoms_values = [x[f].values[0] for f in x.columns]
+                symptoms_df = pd.DataFrame({"symptoms_en": symptoms_en, "symptoms_values": symptoms_values})
+                if model_name=="logistic_regression":
+                  prediction = np.round(clf_model.predict_proba(x)[0][1], 2)
+                  # model_coeffs = clf_model.coef_[0]
+                  # get standardized coeffs
+                  model_coeffs = [feature_importance[target_disease][evidences_code_to_en[f]] for f in x.columns]
+                  contributions_values = [model_coeffs[i]*symptoms_values[i] for i in range(len(symptoms_values))]
+                  contributions_df = pd.DataFrame({"symptoms_en": symptoms_en, "contributions_values": contributions_values, "contributions_abs_values": [abs(i) for i in contributions_values]})
+                else:
+                  prediction, _, contributions = ti.predict(clf_model, x)
+                  contributions_values = contributions[0][:,1]
+                  contributions_df = pd.DataFrame({"symptoms_en": symptoms_en, "contributions_values": contributions_values, "contributions_abs_values": abs(contributions_values)})
+                contributions_df.index  = symptoms_df["symptoms_en"] + "=" + symptoms_df["symptoms_values"].astype(str)
+                contributions_df["symptoms_values"] = symptoms_values
+                contributions_df = contributions_df[contributions_df["contributions_values"]>0]
+                contributions_df = contributions_df[(contributions_df["symptoms_en"].isin(["AGE", "SEX"])) | (contributions_df["symptoms_values"]>0)]
+                contributions_df = contributions_df.sort_values(by="contributions_abs_values", ascending=False).head(10).sort_values(by="contributions_abs_values")
+                if not contributions_df.empty:
+                  contributions_df["contributions_values"].plot.barh()
+                  plt.xlabel("Symptom Importance Score")
+                  plt.title(f"Probability of {target_disease}: {pred_dict[target_disease]:.3f}\n({model_name})")
+                  plt.figtext(.01, .99, 'Symptoms with higher importance score support a positive diagnosis.')                
+                  img_filename = re.sub('[^a-zA-Z0-9 \n\.]', '', target_disease).replace(" ", "_")
+                  plt.savefig(f"{model_output_path}\\{img_filename}.jpg", bbox_inches='tight')
+                  plt.clf()
+    return img_path
 ################### Define Functions ###################
 
        
@@ -162,7 +184,7 @@ while (question_counter < app_n_questions) and ask:
   else:
     next_question_idx += 1
 
-# ask relevant evidences using KNN
+# ask relevant evidences using adaptive questionnaire
 while question_counter < app_n_questions:
     ask =  True
     next_question_idx = 0
@@ -183,8 +205,10 @@ while question_counter < app_n_questions:
           next_question_idx += 1
 
 print("Analyzing...")
+start_time = time.time()
 input_vector = vectorize_input(evidences, age, sex)
-_, output = pred_explain(input_vector, asked)
+output = pred_explain(input_vector)
 print(f"Done! Please see output in {output}")
+print(f"runtime: {time.time() - start_time} sec")
 ################### Serve ###################
 
