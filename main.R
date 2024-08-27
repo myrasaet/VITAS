@@ -34,8 +34,7 @@ train <- pull$pull_training(pull_from_raw = TRUE) # adds patient ID to dataset
 train_arrow <- arrow::open_dataset("data/processed/train.arrow", 
                                    format = "arrow")
 
-box::help(preparation$unnest_evidences)
-
+# box::help(preparation$unnest_evidences)
 
 train_sample <- train_arrow %>% 
   slice_head(n = 100000) %>% 
