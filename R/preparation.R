@@ -620,43 +620,6 @@ coda_prediction_preparation <-
   }
 
 
-# check2 <- coda_prediction_preparation(check %>% 
-#                                         select(-PATHOLOGY))
-# names(check2)
-# names(check2$predictors)
-# library(compositions)
-# 
-# Y <- acomp(check2$outcome)
-# mod <- 
-#   lm(Y ~ as.matrix(check2$predictors))
-# 
-# test <-
-#   predict(mod, newdata = check2$predictors[1:100,])
-# rowSums(test)
-# 
-# manual_evaluate <-
-#   function(idx){
-#     
-#     test[idx,] %>% 
-#       round(2) %>% 
-#       sort(decreasing = T) %>% 
-#       .[. > 0.02] %>% 
-#       print()
-#     
-#     
-#     bind_cols(check2$outcome)[1:100,] %>% 
-#       slice(idx) %>% 
-#       pivot_longer(cols = everything(),
-#                    names_to = "diagnosis",
-#                    values_to = "prob") %>% 
-#       arrange(desc(prob)) %>% 
-#       print()
-#     
-#   }
-# manual_evaluate(3)
-
-
-
 
 
 
