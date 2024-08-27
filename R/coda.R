@@ -143,7 +143,8 @@ prediction <-
            sink){
     
     # fitted_model <- mod
-
+    # data_list <- test_fe
+    
     
     Y <- acomp(data_list$outcome)
     X <- as.matrix(data_list$predictors)
@@ -155,7 +156,6 @@ prediction <-
     predictions <- 
       predict(fitted_model,
               newdata = test_data)
-    
     
     predictions_tidy <-
       c(data_list,
@@ -171,6 +171,47 @@ prediction <-
     
   }
 
+
+
+#' Do predictions on predictors table
+#' 
+#' @param fitted_model A CoDa fitted model.
+#' @param data_list A list. Contains the elements needed for training or
+#' prediction namely:
+#' predictors, id, and outcome. Each of them is a tibble. The predictors and 
+#' outcome datasets are already feature engineered.
+#' @param sink A string. The path where to save the predictions
+#' 
+#' @export
+prediction_raw <-
+  function(fitted_model,
+           predictors_df){
+    
+    # fitted_model <- mod
+    # data_list <- test_fe
+    
+    dummy_outcome_table <-
+      as_tibble(matrix(0, 
+                       nrow = nrow(predictors_df),
+                       ncol = 49))
+    
+    names(dummy_outcome_table) <- 
+      readr::read_rds("configs/diag_pathologies.rds")
+
+    Y <- acomp(dummy_outcome_table)
+    X <- as.matrix(predictors_df)
+    test_data <-
+      data.frame(Y,X)
+    
+    rlang::inform("Predicting...")
+    
+    predictions <- 
+      predict(fitted_model,
+              newdata = test_data)
+    
+    predictions
+    
+  }
 
 # test[1,]$DIFFERENTIAL_DIAGNOSIS
 # test_data[1,]

@@ -552,6 +552,7 @@ coda_prediction_preparation <-
 
     # data <- check # TEST
     # data <- train_prep1 # TEST
+    # data <- prot_dd
     
     
     # Extract outcome variables
@@ -583,10 +584,10 @@ coda_prediction_preparation <-
     pred_num <- 
       predictors %>% 
       select(where(is.numeric))
-    # Normalize the numberic variables
+    # Normalize the numeric variables
     pred_num <- 
-      pred_num %>% 
-      mutate(across(everything(),~scale(.)[,1]))
+      pred_num
+      # mutate(across(everything(),~scale(.)[,1]))
     # Convert all NA values to 0
     pred_num[is.na(pred_num)] <- 0
     

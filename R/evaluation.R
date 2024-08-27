@@ -106,17 +106,22 @@ manual_evaluate <-
       }
     
     
-    rlang::inform("Actual data")
+    message("Actual data")
     .assessment_data <-
       pivot_longer_dd("outcome")
     
     .assessment_data %>% 
       print()
     
-    rlang::inform("\n\nPredicted Data")
+    message("\n\nPredicted Data")
     .predictions <-
       pivot_longer_dd("predicted_outcome")
     print(.predictions)
+    
+    output <- 
+      list(assessment_data = .assessment_data,
+           predictions = .predictions)
+    output
     
   }
 
@@ -249,7 +254,7 @@ compute_differential_metrics <-
     ## Computation of Metrics ##
     
     # 1. Compute GTPA@1
-    rlang::inform("Computing Metric 1: GTPA@1")
+    message("Computing Metric 1: GTPA@1")
     gtpa1 <- 
       mapp_func(patient_set,
               .f = function(x){
@@ -272,10 +277,11 @@ compute_differential_metrics <-
               },
               .progress = TRUE
       )
+    message(mean(gtpa1, na.rm = TRUE))
     readr::write_rds(gtpa1, paste0(save_path,"gtpa1.rds"))
     
     # 2. Compute GTPA
-    rlang::inform("Computing Metric 2: GTPA")
+    message("Computing Metric 2: GTPA")
     gtpa <- 
       mapp_func(patient_set,
               .f = function(x){
@@ -298,11 +304,12 @@ compute_differential_metrics <-
               },
               .progress = TRUE
       )
+    message(mean(gtpa, na.rm = TRUE))
     readr::write_rds(gtpa, paste0(save_path,"gtpa.rds"))
     
     
     # 3. Compute the Differential Diagnosis Recall (DDR)
-    rlang::inform("Computing Metric 3: DDR")
+    message("Computing Metric 3: DDR")
     compute_ddr <-
       function(actual_dd, pred_dd){
         
@@ -338,10 +345,11 @@ compute_differential_metrics <-
               },
               .progress = TRUE
       )
+    message(mean(ddr, na.rm = TRUE))
     readr::write_rds(ddr, paste0(save_path,"ddr.rds"))
     
     # 4. Compute the Differential Diagnosis Precision (DDP)
-    rlang::inform("Computing Metric 4: DDP")
+    message("Computing Metric 4: DDP")
     compute_ddp <-
       function(actual_dd, pred_dd){
         
@@ -377,9 +385,10 @@ compute_differential_metrics <-
               },
               .progress = TRUE
       )
+    message(mean(ddp, na.rm = TRUE))
     readr::write_rds(ddp, paste0(save_path,"ddp.rds"))
     
-    rlang::inform("Computing Metric 5: Spearman Correlation")
+    message("Computing Metric 5: Spearman Correlation")
     # 5. Compute Spearman Correlation
     spear_corr <- 
       mapp_func(patient_set,
@@ -422,6 +431,7 @@ compute_differential_metrics <-
               },
               .progress = TRUE
       )
+    message(mean(spear_corr, na.rm = TRUE))
     readr::write_rds(spear_corr, paste0(save_path,"spear_corr.rds"))
     
     
@@ -450,7 +460,7 @@ compute_differential_metrics <-
     
       
     readr::write_rds(metrics, paste0(save_path, "metrics.rds"))
-    rlang::inform("saved metrics to ",save_path)
+    message("saved metrics to ",save_path)
     
     metrics
     
